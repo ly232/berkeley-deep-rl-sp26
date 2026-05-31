@@ -12,6 +12,7 @@ dependencies = [
     "modal>=1.2.6",
     "numpy<2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
     "pymunk<7",
+    "pytest>=9.0.3",
     "ruff>=0.14.10",
     "setuptools>=80.9.0",
     "torch==2.2.2; sys_platform == 'darwin' and platform_machine == 'x86_64'",

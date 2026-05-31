@@ -77,6 +77,33 @@ def load_pusht_zarr(zarr_path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray
 
 
 def build_valid_indices(episode_ends: np.ndarray, chunk_size: int) -> np.ndarray:
+    """Compute valid starting indices for chunks given episode boundaries.
+
+    Example:
+        episode 0: indices 0, 1, 2, 3, 4
+        valid chunk starts with chunk_size=3:
+        0 -> [0, 1, 2]
+        1 -> [1, 2, 3]
+        2 -> [2, 3, 4]
+
+        episode 1: indices 5, 6, 7, 8, 9
+        valid chunk starts:
+        5 -> [5, 6, 7]
+        6 -> [6, 7, 8]
+        7 -> [7, 8, 9]
+
+        episode_ends == [5, 10]
+        chunk_size == 3
+        returns [0, 1, 2, 5, 6, 7]
+
+    Args:
+        episode_ends: Array of shape (num_episodes,) containing the end
+            **EXCLUSIVE** indices of each episode.
+        chunk_size: The number of consecutive actions to include in each chunk.
+
+    Returns:
+        Array of valid starting indices for chunks.
+    """
     starts = np.concatenate(([0], episode_ends[:-1]))
     indices: list[int] = []
     for start, end in zip(starts, episode_ends, strict=True):
@@ -88,7 +115,15 @@ def build_valid_indices(episode_ends: np.ndarray, chunk_size: int) -> np.ndarray
 
 
 class PushtChunkDataset(Dataset):
-    """Dataset of (state, action_chunk) pairs using a sliding window."""
+    """Dataset of (state, action_chunk) pairs using a sliding window.
+
+    Attributes:
+        states: Array of shape (T, state_dim) containing the states.
+        actions: Array of shape (T, action_dim) containing the actions.
+        chunk_size: The number of consecutive actions to include in each chunk.
+        normalizer: Optional Normalizer to apply to states and actions.
+        indices: Precomputed valid starting indices for chunks.
+    """
 
     def __init__(
         self,
