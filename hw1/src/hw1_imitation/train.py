@@ -9,6 +9,7 @@ from typing import Any
 
 import numpy as np
 import torch
+import tqdm
 import tyro
 import wandb
 from torch.utils.data import DataLoader
@@ -20,7 +21,7 @@ from hw1_imitation.data import (
     load_pusht_zarr,
 )
 from hw1_imitation.model import build_policy, PolicyType
-from hw1_imitation.evaluation import Logger
+from hw1_imitation.evaluation import Logger, evaluate_policy
 
 LOGDIR_PREFIX = "exp"
 
@@ -127,7 +128,41 @@ def run_training(config: TrainConfig) -> None:
     )
     logger = Logger(log_dir)
 
-    ### TODO: PUT YOUR MAIN TRAINING LOOP HERE ###
+    optimizer = torch.optim.AdamW(
+        model.parameters(), lr=config.lr, weight_decay=config.weight_decay
+    )
+    model.train()
+    num_steps = 0
+    for _ in tqdm.tqdm(range(config.num_epochs)):
+        for batch in loader:
+            optimizer.zero_grad()
+            state, action_chunk = batch
+            loss = model.compute_loss(
+                state.to(device),
+                action_chunk.to(device),
+            )
+            loss.backward()
+            optimizer.step()
+
+            if num_steps % config.log_interval == 0:
+                wandb.log({"train/loss": loss.item()}, step=num_steps)
+
+            if num_steps % config.eval_interval == 0 and num_steps > 0:
+                model.eval()
+                evaluate_policy(
+                    model=model,
+                    normalizer=normalizer,
+                    device=device,
+                    chunk_size=config.chunk_size,
+                    video_size=config.video_size,
+                    num_video_episodes=config.num_video_episodes,
+                    flow_num_steps=config.flow_num_steps,
+                    step=num_steps,
+                    logger=logger,
+                )
+                model.train()
+
+            num_steps += 1
 
     logger.dump_for_grading()
 

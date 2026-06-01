@@ -8,6 +8,9 @@ from typing import Literal, TypeAlias
 import torch
 from torch import nn
 
+from itertools import pairwise
+from jaxtyping import Float
+
 
 class BasePolicy(nn.Module, metaclass=abc.ABCMeta):
     """Base class for action chunking policies."""
@@ -37,7 +40,6 @@ class BasePolicy(nn.Module, metaclass=abc.ABCMeta):
 class MSEPolicy(BasePolicy):
     """Predicts action chunks with an MSE loss."""
 
-    ### TODO: IMPLEMENT MSEPolicy HERE ###
     def __init__(
         self,
         state_dim: int,
@@ -46,13 +48,44 @@ class MSEPolicy(BasePolicy):
         hidden_dims: tuple[int, ...] = (128, 128),
     ) -> None:
         super().__init__(state_dim, action_dim, chunk_size)
+        hidden_layers = []
+        for hidden1, hidden2 in pairwise(hidden_dims):
+            hidden_layers.extend(
+                [
+                    nn.Linear(hidden1, hidden2),
+                    nn.ReLU(),
+                ]
+            )
+        layers = (
+            [
+                nn.Linear(state_dim, hidden_dims[0]),
+                nn.ReLU(),
+            ]
+            + hidden_layers
+            + [
+                nn.Linear(hidden_dims[-1], action_dim * chunk_size),
+            ]
+        )
+        self.model = nn.Sequential(*layers)
+
+    def forward(
+        self, state: Float[torch.Tensor, "batch, state_dim"]
+    ) -> Float[torch.Tensor, "batch, chunk_size, action_dim"]:
+        out = self.model(state)
+        return out.reshape(
+            state.shape[0],  # batch size
+            self.chunk_size,
+            self.action_dim,
+        )
 
     def compute_loss(
         self,
         state: torch.Tensor,
         action_chunk: torch.Tensor,
     ) -> torch.Tensor:
-        raise NotImplementedError
+        preds = self(state)  # (batch, chunk, action)
+        loss = nn.functional.mse_loss(preds, action_chunk)
+        return loss
 
     def sample_actions(
         self,
@@ -60,7 +93,9 @@ class MSEPolicy(BasePolicy):
         *,
         num_steps: int = 10,
     ) -> torch.Tensor:
-        raise NotImplementedError
+        with torch.no_grad():
+            action_chunk = self(state)
+        return action_chunk
 
 
 class FlowMatchingPolicy(BasePolicy):
