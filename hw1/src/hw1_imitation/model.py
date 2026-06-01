@@ -36,6 +36,18 @@ class BasePolicy(nn.Module, metaclass=abc.ABCMeta):
     ) -> torch.Tensor:
         """Generate a chunk of actions with shape (batch, chunk_size, action_dim)."""
 
+    def scaffold_mlp(
+        self, input_dim: int, hidden_dims: tuple[int, ...], output_dim: int
+    ) -> nn.Sequential:
+        """Helper function to build an MLP with ReLU activations."""
+        layers = []
+        for l1, l2 in pairwise((input_dim,) + hidden_dims):
+            layers.extend([nn.Linear(l1, l2), nn.ReLU()])
+        layers.append(
+            nn.Linear(hidden_dims[-1] if hidden_dims else input_dim, output_dim)
+        )
+        return nn.Sequential(*layers)
+
 
 class MSEPolicy(BasePolicy):
     """Predicts action chunks with an MSE loss."""
@@ -48,25 +60,9 @@ class MSEPolicy(BasePolicy):
         hidden_dims: tuple[int, ...] = (128, 128),
     ) -> None:
         super().__init__(state_dim, action_dim, chunk_size)
-        hidden_layers = []
-        for hidden1, hidden2 in pairwise(hidden_dims):
-            hidden_layers.extend(
-                [
-                    nn.Linear(hidden1, hidden2),
-                    nn.ReLU(),
-                ]
-            )
-        layers = (
-            [
-                nn.Linear(state_dim, hidden_dims[0]),
-                nn.ReLU(),
-            ]
-            + hidden_layers
-            + [
-                nn.Linear(hidden_dims[-1], action_dim * chunk_size),
-            ]
-        )
-        self.model = nn.Sequential(*layers)
+        input_dim = state_dim
+        output_dim = action_dim * chunk_size
+        self.model = self.scaffold_mlp(input_dim, hidden_dims, output_dim)
 
     def forward(
         self, state: Float[torch.Tensor, "batch, state_dim"]
@@ -101,7 +97,6 @@ class MSEPolicy(BasePolicy):
 class FlowMatchingPolicy(BasePolicy):
     """Predicts action chunks with a flow matching loss."""
 
-    ### TODO: IMPLEMENT FlowMatchingPolicy HERE ###
     def __init__(
         self,
         state_dim: int,
@@ -110,13 +105,69 @@ class FlowMatchingPolicy(BasePolicy):
         hidden_dims: tuple[int, ...] = (128, 128),
     ) -> None:
         super().__init__(state_dim, action_dim, chunk_size)
+        input_dim = state_dim + action_dim * chunk_size + 1  # +1 for time step
+        output_dim = action_dim * chunk_size
+        self.model = self.scaffold_mlp(input_dim, hidden_dims, output_dim)
+
+    def forward(
+        self,
+        state: Float[torch.Tensor, "batch, state_dim"],
+        interpolation: Float[torch.Tensor, "batch, chunk_size, action_dim"],
+        tau: Float[torch.Tensor, "batch 1 1"],
+    ) -> Float[torch.Tensor, "batch, chunk_size, action_dim"]:
+        """Inference the *velocity*, not the action chunk."""
+        batch_size = state.shape[0]
+        tau_flat = tau.reshape(batch_size, 1)
+        interpolation_flat = interpolation.reshape(
+            interpolation.shape[0], self.action_dim * self.chunk_size
+        )
+        input = torch.cat([state, interpolation_flat, tau_flat], dim=1)
+        out = self.model(input)
+        return out.reshape(batch_size, self.chunk_size, self.action_dim)
 
     def compute_loss(
         self,
         state: torch.Tensor,
         action_chunk: torch.Tensor,
     ) -> torch.Tensor:
-        raise NotImplementedError
+        batch_size = state.shape[0]
+        noise = torch.randn_like(
+            action_chunk, device=state.device, dtype=action_chunk.dtype
+        )
+        tau = torch.rand(
+            (batch_size, 1, 1), device=action_chunk.device, dtype=action_chunk.dtype
+        )
+        interpolation = tau * action_chunk + (1 - tau) * noise
+        velocity_preds = self(state, interpolation, tau)
+        velocity_targets = action_chunk - noise
+        loss = nn.functional.mse_loss(velocity_preds, velocity_targets)
+        return loss
+
+    def inference(
+        self,
+        state: Float[torch.Tensor, "batch, state_dim"],
+        num_steps: int,
+    ) -> Float[torch.Tensor, "batch, chunk_size, action_dim"]:
+        """Run the flow model in inference mode by integrating the velocity."""
+        batch_size = state.shape[0]
+        action_chunk = torch.randn(
+            batch_size,
+            self.chunk_size,
+            self.action_dim,
+            device=state.device,
+            dtype=state.dtype,
+        )
+        for step in range(num_steps):
+            tau = torch.full(
+                (batch_size, 1, 1),
+                step / num_steps,
+                device=state.device,
+                dtype=state.dtype,
+            )
+            dt = 1.0 / num_steps
+            velocity = self(state, action_chunk, tau)
+            action_chunk = action_chunk + velocity * dt
+        return action_chunk
 
     def sample_actions(
         self,
@@ -124,7 +175,8 @@ class FlowMatchingPolicy(BasePolicy):
         *,
         num_steps: int = 10,
     ) -> torch.Tensor:
-        raise NotImplementedError
+        with torch.no_grad():
+            return self.inference(state, num_steps=num_steps)
 
 
 PolicyType: TypeAlias = Literal["mse", "flow"]
