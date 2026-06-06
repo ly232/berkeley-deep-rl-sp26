@@ -6,6 +6,7 @@ import gym
 import cv2
 from infrastructure import pytorch_util as ptu
 from typing import Dict, Tuple, List
+from tqdm import tqdm
 
 ############################################
 ############################################
@@ -29,15 +30,15 @@ def sample_trajectory(
                 cv2.resize(img, dsize=(250, 250), interpolation=cv2.INTER_CUBIC)
             )
 
-        # TODO use the most recent ob to decide what to do
-        ac = None
+        # TODO(done) use the most recent ob to decide what to do
+        ac = policy.get_action(ob)
 
-        # TODO: take that action and get reward and next ob
-        next_ob, rew, done, info = None, None, None, None
+        # TODO(done): take that action and get reward and next ob
+        next_ob, rew, done, info = env.step(ac)
 
-        # TODO rollout can end due to done, or due to max_length
+        # TODO(done) rollout can end due to done, or due to max_length
         steps += 1
-        rollout_done = None
+        rollout_done = done or len(next_obs) + 1 >= max_length
 
         # record result of taking that action
         obs.append(ob)
@@ -72,13 +73,17 @@ def sample_trajectories(
     """Collect rollouts using policy until we have collected min_timesteps_per_batch steps."""
     timesteps_this_batch = 0
     trajs = []
-    while timesteps_this_batch < min_timesteps_per_batch:
-        # collect rollout
-        traj = sample_trajectory(env, policy, max_length, render)
-        trajs.append(traj)
+    traj_len = 0
+    with tqdm(total=min_timesteps_per_batch, desc="sampling trajectory") as pbar:
+        while timesteps_this_batch < min_timesteps_per_batch:
+            # collect rollout
+            traj = sample_trajectory(env, policy, max_length, render)
+            trajs.append(traj)
 
-        # count steps
-        timesteps_this_batch += get_traj_length(traj)
+            # count steps
+            traj_len += get_traj_length(traj)
+            timesteps_this_batch += traj_len
+            pbar.update(traj_len)
     return trajs, timesteps_this_batch
 
 

@@ -24,6 +24,25 @@
             "python": "/Users/ly232/github/berkeley-deep-rl-sp26/hw1/.venv/bin/python",
             "console": "integratedTerminal",
             "justMyCode": false
+        },
+        {
+            "name": "HW2 CartPole debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/hw2/src/scripts/run.py",
+            "cwd": "${workspaceFolder}/hw2",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/hw2/.venv/bin/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/hw2/src",
+                "WANDB_MODE": "offline"
+            },
+            "args": [
+                "--env_name", "CartPole-v0",
+                "-n", "100",
+                "-b", "1000",
+                "--exp_name", "cartpole"
+            ]
         }
     ]
 }

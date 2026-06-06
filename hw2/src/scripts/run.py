@@ -59,17 +59,24 @@ def run_training_loop(logger, args):
 
     for itr in range(args.n_iter):
         print(f"\n********** Iteration {itr} ************")
-        # TODO: sample `args.batch_size` transitions using utils.sample_trajectories
+        # TODO(done): sample `args.batch_size` transitions using utils.sample_trajectories
         # make sure to use `max_ep_len`
-        trajs, envsteps_this_batch = None, None
+        trajs, envsteps_this_batch = utils.sample_trajectories(
+            env, agent.actor, args.batch_size, max_ep_len
+        )
         total_envsteps += envsteps_this_batch
 
         # trajs should be a list of dictionaries of NumPy arrays, where each dictionary corresponds to a trajectory.
         # this line converts this into a single dictionary of lists of NumPy arrays.
         trajs_dict = {k: [traj[k] for traj in trajs] for k in trajs[0]}
 
-        # TODO: train the agent using the sampled trajectories and the agent's update function
-        train_info: dict = None
+        # TODO(done): train the agent using the sampled trajectories and the agent's update function
+        train_info: dict = agent.update(
+            trajs_dict["observation"],
+            trajs_dict["action"],
+            trajs_dict["reward"],
+            trajs_dict["terminal"],
+        )
 
         if itr % args.scalar_log_freq == 0:
             # save eval metrics
@@ -113,8 +120,8 @@ def run_training_loop(logger, args):
 
 def setup_arguments(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env_name", type=str, default='CartPole-v0')
-    parser.add_argument("--exp_name", type=str, default='exp')
+    parser.add_argument("--env_name", type=str, default="CartPole-v0")
+    parser.add_argument("--exp_name", type=str, default="exp")
     parser.add_argument("--n_iter", "-n", type=int, default=200)
 
     parser.add_argument("--use_reward_to_go", "-rtg", action="store_true")
@@ -156,10 +163,10 @@ def main(args):
     exp_name = f"{args.env_name}_{args.exp_name}_sd{args.seed}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
     config = vars(args)
-    setup_wandb(project='cs285_hw2', name=exp_name, config=config)
+    setup_wandb(project="cs285_hw2", name=exp_name, config=config)
     args.save_dir = os.path.join(logdir_prefix, exp_name)
     os.makedirs(args.save_dir, exist_ok=True)
-    logger = Logger(os.path.join(args.save_dir, 'log.csv'))
+    logger = Logger(os.path.join(args.save_dir, "log.csv"))
 
     run_training_loop(logger, args)
 
