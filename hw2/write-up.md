@@ -34,3 +34,9 @@ See run results at https://wandb.ai/yang7-cooper-google/cs285_hw2/table, under t
 ![GAE](gae.png)
 
 In this run, λ = 1 appers to perform the best, suggesting low-bias MC estimator is more helpful than low-variance TD estimators for LunarLandar. However, this is just one seed so may be inconclusive.
+
+## Hyperparameter Tuning
+
+![Hyperparameter tuning](pendulum-hyperparam.png)
+
+Best: `InvertedPendulum-v4_pendulum_lambda1_lr0.003_na_b5000_sd1_20260606_232626`

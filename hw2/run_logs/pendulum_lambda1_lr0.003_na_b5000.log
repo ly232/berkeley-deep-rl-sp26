@@ -1,0 +1,2329 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+wandb: WARNING `start_method` is deprecated and will be removed in a future version of wandb. This setting is currently non-functional and safely ignored.
+wandb: Currently logged in as: yang7-cooper (yang7-cooper-google) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+/Users/ly232/github/berkeley-deep-rl-sp26/hw2/.venv/lib/python3.10/site-packages/wandb/analytics/sentry.py:279: DeprecationWarning: The `Scope.user` setter is deprecated in favor of `Scope.set_user()`.
+  self.scope.user = {"email": email}
+/Users/ly232/github/berkeley-deep-rl-sp26/hw2/.venv/lib/python3.10/site-packages/wandb/analytics/sentry.py:279: DeprecationWarning: The `Scope.user` setter is deprecated in favor of `Scope.set_user()`.
+  self.scope.user = {"email": email}
+wandb: Tracking run with wandb version 0.23.1
+wandb: Run data is saved locally in /var/folders/mf/3z49lxfd0jgbxbqysr5_g6y40000gn/T/tmpdjlx59l_/wandb/run-20260606_232627-sbqpfn5n
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run InvertedPendulum-v4_pendulum_lambda1_lr0.003_na_b5000_sd1_20260606_232626
+wandb: ⭐️ View project at https://wandb.ai/yang7-cooper-google/cs285_hw2
+wandb: 🚀 View run at https://wandb.ai/yang7-cooper-google/cs285_hw2/runs/sbqpfn5n
+wandb: Detected [agents] in use.
+wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+/Users/ly232/github/berkeley-deep-rl-sp26/hw2/.venv/lib/python3.10/site-packages/gym/core.py:317: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  deprecation(
+/Users/ly232/github/berkeley-deep-rl-sp26/hw2/.venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+  deprecation(
+Using CPU.
+
+********** Iteration 0 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]/Users/ly232/github/berkeley-deep-rl-sp26/hw2/.venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:241: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+sampling trajectory:  83%|████████▎ | 4133/5000 [00:00<00:00, 40603.70it/s]sampling trajectory: 5217it [00:00, 46509.37it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1033it [00:00, 20199.05it/s]            
+Eval_AverageReturn : 11.142857551574707
+Eval_StdReturn : 8.509298324584961
+Eval_MaxReturn : 37.0
+Eval_MinReturn : 4.0
+Eval_AverageEpLen : 11.142857142857142
+Train_AverageReturn : 7.80555534362793
+Train_StdReturn : 4.306451320648193
+Train_MaxReturn : 21.0
+Train_MinReturn : 3.0
+Train_AverageEpLen : 7.805555555555555
+Actor Loss : -0.05910167470574379
+Baseline Loss : 35.36231231689453
+Train_EnvstepsSoFar : 5217
+TimeSinceStart : 0.21771597862243652
+Initial_DataCollection_AverageReturn : 7.80555534362793
+Done logging...
+
+
+
+********** Iteration 1 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  82%|████████▏ | 4115/5000 [00:00<00:00, 40732.83it/s]sampling trajectory: 5118it [00:00, 43740.25it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1043it [00:00, 16700.87it/s]            
+Eval_AverageReturn : 14.25
+Eval_StdReturn : 8.757140159606934
+Eval_MaxReturn : 33.0
+Eval_MinReturn : 4.0
+Eval_AverageEpLen : 14.25
+Train_AverageReturn : 10.117647171020508
+Train_StdReturn : 5.650428295135498
+Train_MaxReturn : 24.0
+Train_MinReturn : 4.0
+Train_AverageEpLen : 10.117647058823529
+Actor Loss : -0.017449451610445976
+Baseline Loss : 39.65229415893555
+Train_EnvstepsSoFar : 10335
+TimeSinceStart : 0.8486840724945068
+Done logging...
+
+
+
+********** Iteration 2 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  81%|████████  | 4044/5000 [00:00<00:00, 39112.15it/s]sampling trajectory: 5015it [00:00, 44029.04it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1114it [00:00, 21600.83it/s]            
+Eval_AverageReturn : 14.818181991577148
+Eval_StdReturn : 8.233172416687012
+Eval_MaxReturn : 29.0
+Eval_MinReturn : 6.0
+Eval_AverageEpLen : 14.818181818181818
+Train_AverageReturn : 12.407407760620117
+Train_StdReturn : 6.129825592041016
+Train_MaxReturn : 24.0
+Train_MinReturn : 3.0
+Train_AverageEpLen : 12.407407407407407
+Actor Loss : -0.088923379778862
+Baseline Loss : 34.90134048461914
+Train_EnvstepsSoFar : 15350
+TimeSinceStart : 1.0358448028564453
+Done logging...
+
+
+
+********** Iteration 3 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  67%|██████▋   | 3334/5000 [00:00<00:00, 32494.19it/s]sampling trajectory: 5258it [00:00, 37174.04it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1155it [00:00, 15068.28it/s]            
+Eval_AverageReturn : 20.18181800842285
+Eval_StdReturn : 10.381961822509766
+Eval_MaxReturn : 40.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 20.181818181818183
+Train_AverageReturn : 16.230770111083984
+Train_StdReturn : 9.406658172607422
+Train_MaxReturn : 38.0
+Train_MinReturn : 7.0
+Train_AverageEpLen : 16.23076923076923
+Actor Loss : -0.03746683895587921
+Baseline Loss : 86.148193359375
+Train_EnvstepsSoFar : 20608
+TimeSinceStart : 1.2770519256591797
+Done logging...
+
+
+
+********** Iteration 4 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  51%|█████     | 2561/5000 [00:00<00:00, 25090.37it/s]sampling trajectory: 5314it [00:00, 34862.38it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1035it [00:00, 20472.37it/s]            
+Eval_AverageReturn : 15.399999618530273
+Eval_StdReturn : 8.569714546203613
+Eval_MaxReturn : 35.0
+Eval_MinReturn : 6.0
+Eval_AverageEpLen : 15.4
+Train_AverageReturn : 19.869565963745117
+Train_StdReturn : 13.002690315246582
+Train_MaxReturn : 48.0
+Train_MinReturn : 4.0
+Train_AverageEpLen : 19.869565217391305
+Actor Loss : -0.03377598524093628
+Baseline Loss : 148.7638397216797
+Train_EnvstepsSoFar : 25922
+TimeSinceStart : 1.502776861190796
+Done logging...
+
+
+
+********** Iteration 5 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  59%|█████▊    | 2930/5000 [00:00<00:00, 28484.20it/s]sampling trajectory: 5393it [00:00, 35320.17it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1130it [00:00, 12971.67it/s]            
+Eval_AverageReturn : 29.55555534362793
+Eval_StdReturn : 14.229165077209473
+Eval_MaxReturn : 54.0
+Eval_MinReturn : 14.0
+Eval_AverageEpLen : 29.555555555555557
+Train_AverageReturn : 21.18181800842285
+Train_StdReturn : 11.19105339050293
+Train_MaxReturn : 48.0
+Train_MinReturn : 7.0
+Train_AverageEpLen : 21.181818181818183
+Actor Loss : -0.04599156975746155
+Baseline Loss : 107.35674285888672
+Train_EnvstepsSoFar : 31315
+TimeSinceStart : 1.7682969570159912
+Done logging...
+
+
+
+********** Iteration 6 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  41%|████      | 2044/5000 [00:00<00:00, 20110.62it/s]sampling trajectory: 5499it [00:00, 31913.79it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1224it [00:00, 14365.34it/s]            
+Eval_AverageReturn : 32.625
+Eval_StdReturn : 18.62751579284668
+Eval_MaxReturn : 68.0
+Eval_MinReturn : 5.0
+Eval_AverageEpLen : 32.625
+Train_AverageReturn : 27.25
+Train_StdReturn : 13.902788162231445
+Train_MaxReturn : 66.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 27.25
+Actor Loss : -0.04027675464749336
+Baseline Loss : 190.7725830078125
+Train_EnvstepsSoFar : 36814
+TimeSinceStart : 2.048344850540161
+Done logging...
+
+
+
+********** Iteration 7 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  38%|███▊      | 1882/5000 [00:00<00:00, 18605.85it/s]sampling trajectory: 5556it [00:00, 29478.69it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1251it [00:00, 12793.90it/s]            
+Eval_AverageReturn : 49.57143020629883
+Eval_StdReturn : 22.739877700805664
+Eval_MaxReturn : 93.0
+Eval_MinReturn : 19.0
+Eval_AverageEpLen : 49.57142857142857
+Train_AverageReturn : 29.899999618530273
+Train_StdReturn : 15.629778861999512
+Train_MaxReturn : 58.0
+Train_MinReturn : 10.0
+Train_AverageEpLen : 29.9
+Actor Loss : -0.0492260605096817
+Baseline Loss : 201.518798828125
+Train_EnvstepsSoFar : 42370
+TimeSinceStart : 2.35680890083313
+Done logging...
+
+
+
+********** Iteration 8 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  38%|███▊      | 1893/5000 [00:00<00:00, 18123.51it/s]sampling trajectory: 5368it [00:00, 28489.43it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  94%|█████████▎| 935/1000 [00:00<00:00, 9287.04it/s]sampling trajectory: 1303it [00:00, 10766.72it/s]                        
+Eval_AverageReturn : 52.57143020629883
+Eval_StdReturn : 16.910327911376953
+Eval_MaxReturn : 84.0
+Eval_MinReturn : 25.0
+Eval_AverageEpLen : 52.57142857142857
+Train_AverageReturn : 31.6842098236084
+Train_StdReturn : 16.121423721313477
+Train_MaxReturn : 63.0
+Train_MinReturn : 10.0
+Train_AverageEpLen : 31.68421052631579
+Actor Loss : 0.01712176762521267
+Baseline Loss : 222.64906311035156
+Train_EnvstepsSoFar : 47738
+TimeSinceStart : 2.6939148902893066
+Done logging...
+
+
+
+********** Iteration 9 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  35%|███▌      | 1760/5000 [00:00<00:00, 17438.37it/s]sampling trajectory: 5509it [00:00, 27626.90it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1056it [00:00, 14396.97it/s]            
+Eval_AverageReturn : 30.125
+Eval_StdReturn : 14.751588821411133
+Eval_MaxReturn : 54.0
+Eval_MinReturn : 11.0
+Eval_AverageEpLen : 30.125
+Train_AverageReturn : 34.88888931274414
+Train_StdReturn : 13.328703880310059
+Train_MaxReturn : 63.0
+Train_MinReturn : 14.0
+Train_AverageEpLen : 34.888888888888886
+Actor Loss : -0.05100597068667412
+Baseline Loss : 178.1488800048828
+Train_EnvstepsSoFar : 53247
+TimeSinceStart : 2.99637770652771
+Done logging...
+
+
+
+********** Iteration 10 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  28%|██▊       | 1409/5000 [00:00<00:00, 13354.22it/s]sampling trajectory: 5398it [00:00, 28324.40it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1013it [00:00, 12771.68it/s]            
+Eval_AverageReturn : 36.57143020629883
+Eval_StdReturn : 18.03850746154785
+Eval_MaxReturn : 69.0
+Eval_MinReturn : 11.0
+Eval_AverageEpLen : 36.57142857142857
+Train_AverageReturn : 37.0
+Train_StdReturn : 13.754143714904785
+Train_MaxReturn : 69.0
+Train_MinReturn : 21.0
+Train_AverageEpLen : 37.0
+Actor Loss : 0.001103778718970716
+Baseline Loss : 206.81301879882812
+Train_EnvstepsSoFar : 58645
+TimeSinceStart : 3.288627862930298
+Done logging...
+
+
+
+********** Iteration 11 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  26%|██▌       | 1275/5000 [00:00<00:00, 12180.22it/s]sampling trajectory: 5071it [00:00, 26533.02it/s]                          sampling trajectory: 5071it [00:00, 24287.00it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1319it [00:00, 12546.63it/s]            sampling trajectory: 1319it [00:00, 12465.16it/s]
+Eval_AverageReturn : 48.28571319580078
+Eval_StdReturn : 27.81938934326172
+Eval_MaxReturn : 106.0
+Eval_MinReturn : 22.0
+Eval_AverageEpLen : 48.285714285714285
+Train_AverageReturn : 40.5
+Train_StdReturn : 17.20465087890625
+Train_MaxReturn : 87.0
+Train_MinReturn : 12.0
+Train_AverageEpLen : 40.5
+Actor Loss : -0.010294175706803799
+Baseline Loss : 291.9819030761719
+Train_EnvstepsSoFar : 63716
+TimeSinceStart : 3.627041816711426
+Done logging...
+
+
+
+********** Iteration 12 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  37%|███▋      | 1829/5000 [00:00<00:00, 15088.17it/s]sampling trajectory: 5159it [00:00, 24210.35it/s]                          sampling trajectory: 5159it [00:00, 22673.74it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1267it [00:00, 11637.07it/s]            sampling trajectory: 1267it [00:00, 11573.18it/s]
+Eval_AverageReturn : 48.57143020629883
+Eval_StdReturn : 16.525798797607422
+Eval_MaxReturn : 67.0
+Eval_MinReturn : 14.0
+Eval_AverageEpLen : 48.57142857142857
+Train_AverageReturn : 47.86666488647461
+Train_StdReturn : 20.613479614257812
+Train_MaxReturn : 82.0
+Train_MinReturn : 12.0
+Train_AverageEpLen : 47.86666666666667
+Actor Loss : -0.021661434322595596
+Baseline Loss : 374.2650451660156
+Train_EnvstepsSoFar : 68875
+TimeSinceStart : 3.9908788204193115
+Done logging...
+
+
+
+********** Iteration 13 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  31%|███       | 1540/5000 [00:00<00:00, 14407.85it/s]sampling trajectory:  98%|█████████▊| 4911/5000 [00:00<00:00, 24004.14it/s]sampling trajectory: 5661it [00:00, 24339.17it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1157it [00:00, 11905.96it/s]            
+Eval_AverageReturn : 53.33333206176758
+Eval_StdReturn : 7.475887298583984
+Eval_MaxReturn : 60.0
+Eval_MinReturn : 38.0
+Eval_AverageEpLen : 53.333333333333336
+Train_AverageReturn : 53.57143020629883
+Train_StdReturn : 14.286428451538086
+Train_MaxReturn : 82.0
+Train_MinReturn : 29.0
+Train_AverageEpLen : 53.57142857142857
+Actor Loss : -0.007255267351865768
+Baseline Loss : 311.80548095703125
+Train_EnvstepsSoFar : 74536
+TimeSinceStart : 4.348853826522827
+Done logging...
+
+
+
+********** Iteration 14 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  29%|██▉       | 1467/5000 [00:00<00:00, 11561.92it/s]sampling trajectory: 5347it [00:00, 23811.33it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  92%|█████████▎| 925/1000 [00:00<00:00, 8905.68it/s]sampling trajectory: 1330it [00:00, 10213.10it/s]                        
+Eval_AverageReturn : 67.5
+Eval_StdReturn : 13.438129425048828
+Eval_MaxReturn : 91.0
+Eval_MinReturn : 49.0
+Eval_AverageEpLen : 67.5
+Train_AverageReturn : 48.35714340209961
+Train_StdReturn : 18.43756675720215
+Train_MaxReturn : 85.0
+Train_MinReturn : 25.0
+Train_AverageEpLen : 48.357142857142854
+Actor Loss : -0.034595321863889694
+Baseline Loss : 303.3252258300781
+Train_EnvstepsSoFar : 79883
+TimeSinceStart : 4.727898836135864
+Done logging...
+
+
+
+********** Iteration 15 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|█▉        | 993/5000 [00:00<00:00, 9124.16it/s]sampling trajectory: 5503it [00:00, 29232.08it/s]                        sampling trajectory: 5503it [00:00, 26032.48it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1111it [00:00, 12074.11it/s]            
+Eval_AverageReturn : 52.33333206176758
+Eval_StdReturn : 21.715330123901367
+Eval_MaxReturn : 100.0
+Eval_MinReturn : 37.0
+Eval_AverageEpLen : 52.333333333333336
+Train_AverageReturn : 56.0
+Train_StdReturn : 24.90906524658203
+Train_MaxReturn : 105.0
+Train_MinReturn : 14.0
+Train_AverageEpLen : 56.0
+Actor Loss : 0.009750100784003735
+Baseline Loss : 516.2088623046875
+Train_EnvstepsSoFar : 85386
+TimeSinceStart : 5.055285930633545
+Done logging...
+
+
+
+********** Iteration 16 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 882/5000 [00:00<00:00, 8609.57it/s]sampling trajectory:  95%|█████████▌| 4756/5000 [00:00<00:00, 25451.50it/s]sampling trajectory: 5468it [00:00, 25024.47it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  98%|█████████▊| 980/1000 [00:00<00:00, 9482.35it/s]sampling trajectory: 1404it [00:00, 11358.67it/s]                        
+Eval_AverageReturn : 70.66666412353516
+Eval_StdReturn : 41.34677505493164
+Eval_MaxReturn : 145.0
+Eval_MinReturn : 16.0
+Eval_AverageEpLen : 70.66666666666667
+Train_AverageReturn : 54.769229888916016
+Train_StdReturn : 31.0908203125
+Train_MaxReturn : 121.0
+Train_MinReturn : 19.0
+Train_AverageEpLen : 54.76923076923077
+Actor Loss : -0.01675325818359852
+Baseline Loss : 786.408447265625
+Train_EnvstepsSoFar : 90854
+TimeSinceStart : 5.43854284286499
+Done logging...
+
+
+
+********** Iteration 17 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1080/5000 [00:00<00:00, 10418.28it/s]sampling trajectory: 5367it [00:00, 27087.42it/s]                          sampling trajectory: 5367it [00:00, 24580.37it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1214it [00:00, 12103.36it/s]            
+Eval_AverageReturn : 53.33333206176758
+Eval_StdReturn : 24.212026596069336
+Eval_MaxReturn : 104.0
+Eval_MinReturn : 28.0
+Eval_AverageEpLen : 53.333333333333336
+Train_AverageReturn : 49.92856979370117
+Train_StdReturn : 17.842422485351562
+Train_MaxReturn : 106.0
+Train_MinReturn : 22.0
+Train_AverageEpLen : 49.92857142857143
+Actor Loss : -0.021336376667022705
+Baseline Loss : 418.3986511230469
+Train_EnvstepsSoFar : 96221
+TimeSinceStart : 5.778567790985107
+Done logging...
+
+
+
+********** Iteration 18 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  25%|██▌       | 1272/5000 [00:00<00:00, 11544.98it/s]sampling trajectory:  79%|███████▉  | 3942/5000 [00:00<00:00, 18623.63it/s]sampling trajectory: 5500it [00:00, 22011.61it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1103it [00:00, 11813.61it/s]            
+Eval_AverageReturn : 49.33333206176758
+Eval_StdReturn : 16.006942749023438
+Eval_MaxReturn : 78.0
+Eval_MinReturn : 23.0
+Eval_AverageEpLen : 49.333333333333336
+Train_AverageReturn : 56.85714340209961
+Train_StdReturn : 30.335874557495117
+Train_MaxReturn : 140.0
+Train_MinReturn : 22.0
+Train_AverageEpLen : 56.857142857142854
+Actor Loss : -0.060284893959760666
+Baseline Loss : 830.7467651367188
+Train_EnvstepsSoFar : 101721
+TimeSinceStart : 6.1473259925842285
+Done logging...
+
+
+
+********** Iteration 19 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▎       | 1181/5000 [00:00<00:00, 9560.66it/s]sampling trajectory:  99%|█████████▊| 4933/5000 [00:00<00:00, 23352.63it/s]sampling trajectory: 5759it [00:00, 22784.29it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  95%|█████████▌| 951/1000 [00:00<00:00, 7719.16it/s]sampling trajectory: 1376it [00:00, 9818.95it/s]                         
+Eval_AverageReturn : 70.83333587646484
+Eval_StdReturn : 27.187108993530273
+Eval_MaxReturn : 111.0
+Eval_MinReturn : 45.0
+Eval_AverageEpLen : 70.83333333333333
+Train_AverageReturn : 68.83333587646484
+Train_StdReturn : 16.915639877319336
+Train_MaxReturn : 93.0
+Train_MinReturn : 49.0
+Train_AverageEpLen : 68.83333333333333
+Actor Loss : 0.015494297258555889
+Baseline Loss : 470.3311767578125
+Train_EnvstepsSoFar : 107480
+TimeSinceStart : 6.563799619674683
+Done logging...
+
+
+
+********** Iteration 20 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▍       | 1202/5000 [00:00<00:00, 11387.76it/s]sampling trajectory: 5404it [00:00, 26939.76it/s]                          sampling trajectory: 5404it [00:00, 24609.69it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  96%|█████████▌| 957/1000 [00:00<00:00, 9540.12it/s]sampling trajectory: 1385it [00:00, 10714.66it/s]                        
+Eval_AverageReturn : 85.5999984741211
+Eval_StdReturn : 30.715469360351562
+Eval_MaxReturn : 132.0
+Eval_MinReturn : 49.0
+Eval_AverageEpLen : 85.6
+Train_AverageReturn : 57.846153259277344
+Train_StdReturn : 16.658775329589844
+Train_MaxReturn : 79.0
+Train_MinReturn : 24.0
+Train_AverageEpLen : 57.84615384615385
+Actor Loss : -0.02767072804272175
+Baseline Loss : 315.6349182128906
+Train_EnvstepsSoFar : 112884
+TimeSinceStart : 6.939088821411133
+Done logging...
+
+
+
+********** Iteration 21 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  26%|██▌       | 1294/5000 [00:00<00:00, 11061.15it/s]sampling trajectory:  82%|████████▏ | 4122/5000 [00:00<00:00, 20018.21it/s]sampling trajectory: 5722it [00:00, 21348.82it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1144it [00:00, 13645.17it/s]            
+Eval_AverageReturn : 51.16666793823242
+Eval_StdReturn : 14.7582368850708
+Eval_MaxReturn : 82.0
+Eval_MinReturn : 39.0
+Eval_AverageEpLen : 51.166666666666664
+Train_AverageReturn : 58.78571319580078
+Train_StdReturn : 25.473175048828125
+Train_MaxReturn : 107.0
+Train_MinReturn : 20.0
+Train_AverageEpLen : 58.785714285714285
+Actor Loss : -0.011873875744640827
+Baseline Loss : 514.1187744140625
+Train_EnvstepsSoFar : 118606
+TimeSinceStart : 7.3152079582214355
+Done logging...
+
+
+
+********** Iteration 22 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▍       | 1209/5000 [00:00<00:00, 11619.74it/s]sampling trajectory:  67%|██████▋   | 3350/5000 [00:00<00:00, 15855.82it/s]sampling trajectory: 5660it [00:00, 21250.16it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  81%|████████  | 810/1000 [00:00<00:00, 7321.24it/s]sampling trajectory: 1240it [00:00, 9042.12it/s]                         
+Eval_AverageReturn : 86.0
+Eval_StdReturn : 17.0880069732666
+Eval_MaxReturn : 110.0
+Eval_MinReturn : 63.0
+Eval_AverageEpLen : 86.0
+Train_AverageReturn : 69.91666412353516
+Train_StdReturn : 36.754722595214844
+Train_MaxReturn : 135.0
+Train_MinReturn : 21.0
+Train_AverageEpLen : 69.91666666666667
+Actor Loss : -0.0638187974691391
+Baseline Loss : 993.970947265625
+Train_EnvstepsSoFar : 124266
+TimeSinceStart : 7.74318790435791
+Done logging...
+
+
+
+********** Iteration 23 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▍       | 1214/5000 [00:00<00:00, 10456.41it/s]sampling trajectory:  86%|████████▌ | 4304/5000 [00:00<00:00, 21282.10it/s]sampling trajectory: 5119it [00:00, 21783.34it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1272it [00:00, 12458.24it/s]            sampling trajectory: 1272it [00:00, 12379.44it/s]
+Eval_AverageReturn : 43.85714340209961
+Eval_StdReturn : 7.278707981109619
+Eval_MaxReturn : 50.0
+Eval_MinReturn : 27.0
+Eval_AverageEpLen : 43.857142857142854
+Train_AverageReturn : 74.09091186523438
+Train_StdReturn : 31.938732147216797
+Train_MaxReturn : 139.0
+Train_MinReturn : 29.0
+Train_AverageEpLen : 74.0909090909091
+Actor Loss : -0.039149411022663116
+Baseline Loss : 907.3270874023438
+Train_EnvstepsSoFar : 129385
+TimeSinceStart : 8.103118658065796
+Done logging...
+
+
+
+********** Iteration 24 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1077/5000 [00:00<00:00, 9355.87it/s]sampling trajectory: 5048it [00:00, 23492.39it/s]                         
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1157it [00:00, 7889.31it/s]             sampling trajectory: 1157it [00:00, 7847.25it/s]
+Eval_AverageReturn : 115.25
+Eval_StdReturn : 47.599239349365234
+Eval_MaxReturn : 166.0
+Eval_MinReturn : 44.0
+Eval_AverageEpLen : 115.25
+Train_AverageReturn : 62.91666793823242
+Train_StdReturn : 24.94145965576172
+Train_MaxReturn : 118.0
+Train_MinReturn : 13.0
+Train_AverageEpLen : 62.916666666666664
+Actor Loss : -0.01832526922225952
+Baseline Loss : 493.42236328125
+Train_EnvstepsSoFar : 134433
+TimeSinceStart : 8.483868837356567
+Done logging...
+
+
+
+********** Iteration 25 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|█▉        | 981/5000 [00:00<00:00, 9106.25it/s]sampling trajectory:  89%|████████▊ | 4427/5000 [00:00<00:00, 22344.35it/s]sampling trajectory: 5231it [00:00, 22750.60it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1113it [00:00, 11830.36it/s]            
+Eval_AverageReturn : 49.83333206176758
+Eval_StdReturn : 14.229272842407227
+Eval_MaxReturn : 67.0
+Eval_MinReturn : 24.0
+Eval_AverageEpLen : 49.833333333333336
+Train_AverageReturn : 67.0
+Train_StdReturn : 19.617170333862305
+Train_MaxReturn : 105.0
+Train_MinReturn : 45.0
+Train_AverageEpLen : 67.0
+Actor Loss : -0.01285986602306366
+Baseline Loss : 482.9819641113281
+Train_EnvstepsSoFar : 139664
+TimeSinceStart : 8.826148748397827
+Done logging...
+
+
+
+********** Iteration 26 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  25%|██▌       | 1274/5000 [00:00<00:00, 8615.56it/s]sampling trajectory:  89%|████████▉ | 4450/5000 [00:00<00:00, 19538.28it/s]sampling trajectory: 5425it [00:00, 20386.77it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  86%|████████▋ | 865/1000 [00:00<00:00, 8410.72it/s]sampling trajectory: 1243it [00:00, 10598.65it/s]                        
+Eval_AverageReturn : 63.0
+Eval_StdReturn : 24.09010887145996
+Eval_MaxReturn : 92.0
+Eval_MinReturn : 29.0
+Eval_AverageEpLen : 63.0
+Train_AverageReturn : 97.5
+Train_StdReturn : 36.43418502807617
+Train_MaxReturn : 156.0
+Train_MinReturn : 52.0
+Train_AverageEpLen : 97.5
+Actor Loss : 0.019435860216617584
+Baseline Loss : 1434.2581787109375
+Train_EnvstepsSoFar : 145089
+TimeSinceStart : 9.232020854949951
+Done logging...
+
+
+
+********** Iteration 27 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  25%|██▍       | 1232/5000 [00:00<00:00, 9383.88it/s]sampling trajectory:  81%|████████  | 4030/5000 [00:00<00:00, 18728.51it/s]sampling trajectory: 5958it [00:00, 21753.67it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1012it [00:00, 9200.19it/s]             sampling trajectory: 1012it [00:00, 9132.12it/s]
+Eval_AverageReturn : 69.19999694824219
+Eval_StdReturn : 17.600000381469727
+Eval_MaxReturn : 99.0
+Eval_MinReturn : 51.0
+Eval_AverageEpLen : 69.2
+Train_AverageReturn : 84.33333587646484
+Train_StdReturn : 36.73856735229492
+Train_MaxReturn : 165.0
+Train_MinReturn : 40.0
+Train_AverageEpLen : 84.33333333333333
+Actor Loss : -0.0006507913349196315
+Baseline Loss : 1197.494384765625
+Train_EnvstepsSoFar : 151047
+TimeSinceStart : 9.638596773147583
+Done logging...
+
+
+
+********** Iteration 28 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  25%|██▍       | 1239/5000 [00:00<00:00, 11011.28it/s]sampling trajectory: 5441it [00:00, 26940.33it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1252it [00:00, 11128.49it/s]            sampling trajectory: 1252it [00:00, 11048.65it/s]
+Eval_AverageReturn : 50.85714340209961
+Eval_StdReturn : 21.748092651367188
+Eval_MaxReturn : 80.0
+Eval_MinReturn : 16.0
+Eval_AverageEpLen : 50.857142857142854
+Train_AverageReturn : 58.07692337036133
+Train_StdReturn : 23.78577995300293
+Train_MaxReturn : 109.0
+Train_MinReturn : 30.0
+Train_AverageEpLen : 58.07692307692308
+Actor Loss : -0.043607525527477264
+Baseline Loss : 661.8388061523438
+Train_EnvstepsSoFar : 156488
+TimeSinceStart : 9.974459886550903
+Done logging...
+
+
+
+********** Iteration 29 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  23%|██▎       | 1133/5000 [00:00<00:00, 10424.44it/s]sampling trajectory: 5299it [00:00, 27727.26it/s]                          sampling trajectory: 5299it [00:00, 25003.56it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  96%|█████████▌| 957/1000 [00:00<00:00, 8815.34it/s]sampling trajectory: 1437it [00:00, 10022.61it/s]                        
+Eval_AverageReturn : 96.0
+Eval_StdReturn : 10.770329475402832
+Eval_MaxReturn : 112.0
+Eval_MinReturn : 83.0
+Eval_AverageEpLen : 96.0
+Train_AverageReturn : 63.41666793823242
+Train_StdReturn : 13.573616027832031
+Train_MaxReturn : 97.0
+Train_MinReturn : 49.0
+Train_AverageEpLen : 63.416666666666664
+Actor Loss : -0.03845342993736267
+Baseline Loss : 367.3714599609375
+Train_EnvstepsSoFar : 161787
+TimeSinceStart : 10.350761890411377
+Done logging...
+
+
+
+********** Iteration 30 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  14%|█▍        | 725/5000 [00:00<00:00, 7215.74it/s]sampling trajectory:  74%|███████▎  | 3686/5000 [00:00<00:00, 19201.85it/s]sampling trajectory: 5343it [00:00, 21659.83it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  92%|█████████▏| 917/1000 [00:00<00:00, 8361.13it/s]sampling trajectory: 1308it [00:00, 11343.25it/s]                        
+Eval_AverageReturn : 78.19999694824219
+Eval_StdReturn : 38.112464904785156
+Eval_MaxReturn : 127.0
+Eval_MinReturn : 12.0
+Eval_AverageEpLen : 78.2
+Train_AverageReturn : 78.18181610107422
+Train_StdReturn : 27.62350082397461
+Train_MaxReturn : 147.0
+Train_MinReturn : 39.0
+Train_AverageEpLen : 78.18181818181819
+Actor Loss : 0.0009236296755261719
+Baseline Loss : 829.3202514648438
+Train_EnvstepsSoFar : 167130
+TimeSinceStart : 10.739105701446533
+Done logging...
+
+
+
+********** Iteration 31 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▊        | 936/5000 [00:00<00:00, 7623.77it/s]sampling trajectory:  95%|█████████▍| 4737/5000 [00:00<00:00, 21605.86it/s]sampling trajectory: 5650it [00:00, 21688.98it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  97%|█████████▋| 969/1000 [00:00<00:00, 8354.24it/s]sampling trajectory: 1468it [00:00, 10166.75it/s]                        
+Eval_AverageReturn : 99.80000305175781
+Eval_StdReturn : 15.954936981201172
+Eval_MaxReturn : 131.0
+Eval_MinReturn : 86.0
+Eval_AverageEpLen : 99.8
+Train_AverageReturn : 83.0
+Train_StdReturn : 41.13834762573242
+Train_MaxReturn : 175.0
+Train_MinReturn : 28.0
+Train_AverageEpLen : 83.0
+Actor Loss : 0.008340578526258469
+Baseline Loss : 1434.5262451171875
+Train_EnvstepsSoFar : 172780
+TimeSinceStart : 11.167848825454712
+Done logging...
+
+
+
+********** Iteration 32 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  21%|██        | 1034/5000 [00:00<00:00, 9715.48it/s]sampling trajectory:  91%|█████████▏| 4568/5000 [00:00<00:00, 22864.15it/s]sampling trajectory: 5413it [00:00, 22386.93it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  88%|████████▊ | 877/1000 [00:00<00:00, 8490.73it/s]sampling trajectory: 1350it [00:00, 10052.57it/s]                        
+Eval_AverageReturn : 94.5999984741211
+Eval_StdReturn : 26.941417694091797
+Eval_MaxReturn : 112.0
+Eval_MinReturn : 41.0
+Eval_AverageEpLen : 94.6
+Train_AverageReturn : 76.81818389892578
+Train_StdReturn : 25.883718490600586
+Train_MaxReturn : 130.0
+Train_MinReturn : 45.0
+Train_AverageEpLen : 76.81818181818181
+Actor Loss : -0.006729200482368469
+Baseline Loss : 775.2091674804688
+Train_EnvstepsSoFar : 178193
+TimeSinceStart : 11.566170692443848
+Done logging...
+
+
+
+********** Iteration 33 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 890/5000 [00:00<00:00, 7989.53it/s]sampling trajectory:  73%|███████▎  | 3666/5000 [00:00<00:00, 18927.36it/s]sampling trajectory: 5389it [00:00, 19801.87it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1233it [00:00, 8838.91it/s]             sampling trajectory: 1233it [00:00, 8798.97it/s]
+Eval_AverageReturn : 95.0
+Eval_StdReturn : 39.8195915222168
+Eval_MaxReturn : 141.0
+Eval_MinReturn : 39.0
+Eval_AverageEpLen : 95.0
+Train_AverageReturn : 82.7272720336914
+Train_StdReturn : 25.074764251708984
+Train_MaxReturn : 128.0
+Train_MinReturn : 39.0
+Train_AverageEpLen : 82.72727272727273
+Actor Loss : 0.003014544490724802
+Baseline Loss : 824.8434448242188
+Train_EnvstepsSoFar : 183582
+TimeSinceStart : 11.999744892120361
+Done logging...
+
+
+
+********** Iteration 34 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 881/5000 [00:00<00:00, 7599.81it/s]sampling trajectory:  77%|███████▋  | 3839/5000 [00:00<00:00, 17991.07it/s]sampling trajectory: 5708it [00:00, 19848.54it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  89%|████████▉ | 892/1000 [00:00<00:00, 8131.27it/s]sampling trajectory: 1346it [00:00, 10428.70it/s]                        
+Eval_AverageReturn : 90.80000305175781
+Eval_StdReturn : 19.983993530273438
+Eval_MaxReturn : 122.0
+Eval_MinReturn : 70.0
+Eval_AverageEpLen : 90.8
+Train_AverageReturn : 90.45454406738281
+Train_StdReturn : 30.479093551635742
+Train_MaxReturn : 138.0
+Train_MinReturn : 45.0
+Train_AverageEpLen : 90.45454545454545
+Actor Loss : -0.001087545300833881
+Baseline Loss : 1089.78564453125
+Train_EnvstepsSoFar : 189290
+TimeSinceStart : 12.438567876815796
+Done logging...
+
+
+
+********** Iteration 35 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1097/5000 [00:00<00:00, 9829.40it/s]sampling trajectory:  75%|███████▌  | 3771/5000 [00:00<00:00, 17649.44it/s]sampling trajectory: 5765it [00:00, 20394.53it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1155it [00:00, 6877.99it/s]             sampling trajectory: 1155it [00:00, 6852.26it/s]
+Eval_AverageReturn : 138.5
+Eval_StdReturn : 72.4240951538086
+Eval_MaxReturn : 246.0
+Eval_MinReturn : 65.0
+Eval_AverageEpLen : 138.5
+Train_AverageReturn : 106.69999694824219
+Train_StdReturn : 26.85162925720215
+Train_MaxReturn : 142.0
+Train_MinReturn : 73.0
+Train_AverageEpLen : 106.7
+Actor Loss : 0.007092108018696308
+Baseline Loss : 1226.2691650390625
+Train_EnvstepsSoFar : 195055
+TimeSinceStart : 12.914551019668579
+Done logging...
+
+
+
+********** Iteration 36 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1079/5000 [00:00<00:00, 8275.74it/s]sampling trajectory:  80%|████████  | 4006/5000 [00:00<00:00, 18458.97it/s]sampling trajectory: 5052it [00:00, 18655.97it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  80%|████████  | 801/1000 [00:00<00:00, 7952.65it/s]sampling trajectory: 1239it [00:00, 10487.20it/s]                        
+Eval_AverageReturn : 109.5
+Eval_StdReturn : 33.811981201171875
+Eval_MaxReturn : 145.0
+Eval_MinReturn : 55.0
+Eval_AverageEpLen : 109.5
+Train_AverageReturn : 116.22222137451172
+Train_StdReturn : 46.124900817871094
+Train_MaxReturn : 205.0
+Train_MinReturn : 59.0
+Train_AverageEpLen : 116.22222222222223
+Actor Loss : -0.05488179624080658
+Baseline Loss : 2398.9853515625
+Train_EnvstepsSoFar : 200107
+TimeSinceStart : 13.325981855392456
+Done logging...
+
+
+
+********** Iteration 37 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 890/5000 [00:00<00:00, 8654.06it/s]sampling trajectory:  73%|███████▎  | 3652/5000 [00:00<00:00, 19068.45it/s]sampling trajectory: 5273it [00:00, 22393.23it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  96%|█████████▌| 959/1000 [00:00<00:00, 7900.82it/s]sampling trajectory: 1400it [00:00, 10551.88it/s]                        
+Eval_AverageReturn : 88.19999694824219
+Eval_StdReturn : 50.68096160888672
+Eval_MaxReturn : 166.0
+Eval_MinReturn : 30.0
+Eval_AverageEpLen : 88.2
+Train_AverageReturn : 75.45454406738281
+Train_StdReturn : 36.592010498046875
+Train_MaxReturn : 170.0
+Train_MinReturn : 36.0
+Train_AverageEpLen : 75.45454545454545
+Actor Loss : 0.009670108556747437
+Baseline Loss : 1261.193115234375
+Train_EnvstepsSoFar : 205380
+TimeSinceStart : 13.715954780578613
+Done logging...
+
+
+
+********** Iteration 38 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▍       | 1205/5000 [00:00<00:00, 10988.71it/s]sampling trajectory:  73%|███████▎  | 3641/5000 [00:00<00:00, 16847.90it/s]sampling trajectory: 5430it [00:00, 20139.67it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  81%|████████  | 810/1000 [00:00<00:00, 7913.32it/s]sampling trajectory: 1199it [00:00, 9874.65it/s]                         
+Eval_AverageReturn : 77.80000305175781
+Eval_StdReturn : 20.66301155090332
+Eval_MaxReturn : 107.0
+Eval_MinReturn : 56.0
+Eval_AverageEpLen : 77.8
+Train_AverageReturn : 87.0
+Train_StdReturn : 32.99862289428711
+Train_MaxReturn : 142.0
+Train_MinReturn : 47.0
+Train_AverageEpLen : 87.0
+Actor Loss : -0.015413868241012096
+Baseline Loss : 1004.51953125
+Train_EnvstepsSoFar : 210810
+TimeSinceStart : 14.129958868026733
+Done logging...
+
+
+
+********** Iteration 39 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  15%|█▌        | 772/5000 [00:00<00:00, 7554.55it/s]sampling trajectory:  47%|████▋     | 2370/5000 [00:00<00:00, 11643.52it/s]sampling trajectory: 5071it [00:00, 17250.11it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  70%|██████▉   | 699/1000 [00:00<00:00, 6687.47it/s]sampling trajectory: 1174it [00:00, 8919.20it/s]                         
+Eval_AverageReturn : 118.75
+Eval_StdReturn : 21.463632583618164
+Eval_MaxReturn : 154.0
+Eval_MinReturn : 100.0
+Eval_AverageEpLen : 118.75
+Train_AverageReturn : 100.4000015258789
+Train_StdReturn : 38.1580924987793
+Train_MaxReturn : 168.0
+Train_MinReturn : 40.0
+Train_AverageEpLen : 100.4
+Actor Loss : 0.02532586082816124
+Baseline Loss : 1380.32177734375
+Train_EnvstepsSoFar : 215881
+TimeSinceStart : 14.580045700073242
+Done logging...
+
+
+
+********** Iteration 40 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  16%|█▌        | 777/5000 [00:00<00:00, 7224.55it/s]sampling trajectory:  63%|██████▎   | 3160/5000 [00:00<00:00, 15078.26it/s]sampling trajectory: 5987it [00:00, 20139.34it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  98%|█████████▊| 979/1000 [00:00<00:00, 9440.42it/s]sampling trajectory: 1419it [00:00, 11222.18it/s]                        
+Eval_AverageReturn : 88.0
+Eval_StdReturn : 14.764822959899902
+Eval_MaxReturn : 108.0
+Eval_MinReturn : 70.0
+Eval_AverageEpLen : 88.0
+Train_AverageReturn : 105.5999984741211
+Train_StdReturn : 37.049156188964844
+Train_MaxReturn : 176.0
+Train_MinReturn : 49.0
+Train_AverageEpLen : 105.6
+Actor Loss : -0.01551827322691679
+Baseline Loss : 1245.4381103515625
+Train_EnvstepsSoFar : 221868
+TimeSinceStart : 15.021512985229492
+Done logging...
+
+
+
+********** Iteration 41 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 893/5000 [00:00<00:00, 6932.80it/s]sampling trajectory:  92%|█████████▏| 4617/5000 [00:00<00:00, 21688.72it/s]sampling trajectory: 5533it [00:00, 20694.34it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  91%|█████████▏| 914/1000 [00:00<00:00, 7155.60it/s]sampling trajectory: 1492it [00:00, 8485.61it/s]                         
+Eval_AverageReturn : 115.5999984741211
+Eval_StdReturn : 48.7548942565918
+Eval_MaxReturn : 182.0
+Eval_MinReturn : 51.0
+Eval_AverageEpLen : 115.6
+Train_AverageReturn : 91.5999984741211
+Train_StdReturn : 44.04361343383789
+Train_MaxReturn : 188.0
+Train_MinReturn : 43.0
+Train_AverageEpLen : 91.6
+Actor Loss : -0.002198380185291171
+Baseline Loss : 1385.2755126953125
+Train_EnvstepsSoFar : 227401
+TimeSinceStart : 15.486516952514648
+Done logging...
+
+
+
+********** Iteration 42 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 889/5000 [00:00<00:00, 8745.98it/s]sampling trajectory:  39%|███▉      | 1943/5000 [00:00<00:00, 6928.24it/s]sampling trajectory: 5935it [00:00, 18797.98it/s]                         sampling trajectory: 5935it [00:00, 15681.81it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  75%|███████▌  | 752/1000 [00:00<00:00, 6844.51it/s]sampling trajectory: 1153it [00:00, 9230.80it/s]                         
+Eval_AverageReturn : 100.25
+Eval_StdReturn : 37.97614288330078
+Eval_MaxReturn : 152.0
+Eval_MinReturn : 46.0
+Eval_AverageEpLen : 100.25
+Train_AverageReturn : 87.09091186523438
+Train_StdReturn : 28.541690826416016
+Train_MaxReturn : 126.0
+Train_MinReturn : 27.0
+Train_AverageEpLen : 87.0909090909091
+Actor Loss : -0.02305605448782444
+Baseline Loss : 886.7725830078125
+Train_EnvstepsSoFar : 233336
+TimeSinceStart : 16.01300287246704
+Done logging...
+
+
+
+********** Iteration 43 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  16%|█▋        | 821/5000 [00:00<00:00, 6519.44it/s]sampling trajectory:  65%|██████▍   | 3239/5000 [00:00<00:00, 14915.65it/s]sampling trajectory: 5365it [00:00, 17528.15it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  91%|█████████ | 906/1000 [00:00<00:00, 8063.93it/s]sampling trajectory: 1368it [00:00, 9318.80it/s]                         
+Eval_AverageReturn : 77.0
+Eval_StdReturn : 30.605010986328125
+Eval_MaxReturn : 114.0
+Eval_MinReturn : 40.0
+Eval_AverageEpLen : 77.0
+Train_AverageReturn : 139.5
+Train_StdReturn : 79.30006408691406
+Train_MaxReturn : 320.0
+Train_MinReturn : 68.0
+Train_AverageEpLen : 139.5
+Actor Loss : -0.03172142803668976
+Baseline Loss : 6671.72998046875
+Train_EnvstepsSoFar : 238701
+TimeSinceStart : 16.488974809646606
+Done logging...
+
+
+
+********** Iteration 44 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  15%|█▍        | 731/5000 [00:00<00:00, 6783.03it/s]sampling trajectory:  72%|███████▏  | 3621/5000 [00:00<00:00, 18175.81it/s]sampling trajectory: 5378it [00:00, 20049.71it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  95%|█████████▍| 946/1000 [00:00<00:00, 8556.81it/s]sampling trajectory: 1415it [00:00, 9948.32it/s]                         
+Eval_AverageReturn : 93.80000305175781
+Eval_StdReturn : 16.43654441833496
+Eval_MaxReturn : 116.0
+Eval_MinReturn : 65.0
+Eval_AverageEpLen : 93.8
+Train_AverageReturn : 92.0999984741211
+Train_StdReturn : 24.406761169433594
+Train_MaxReturn : 148.0
+Train_MinReturn : 42.0
+Train_AverageEpLen : 92.1
+Actor Loss : -0.0446331687271595
+Baseline Loss : 1098.6864013671875
+Train_EnvstepsSoFar : 244079
+TimeSinceStart : 16.923730850219727
+Done logging...
+
+
+
+********** Iteration 45 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▉        | 957/5000 [00:00<00:00, 8096.93it/s]sampling trajectory:  68%|██████▊   | 3387/5000 [00:00<00:00, 16169.98it/s]sampling trajectory: 5101it [00:00, 17935.77it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  78%|███████▊  | 782/1000 [00:00<00:00, 7493.06it/s]sampling trajectory: 1278it [00:00, 9317.24it/s]                         
+Eval_AverageReturn : 124.0
+Eval_StdReturn : 27.577163696289062
+Eval_MaxReturn : 155.0
+Eval_MinReturn : 86.0
+Eval_AverageEpLen : 124.0
+Train_AverageReturn : 92.69999694824219
+Train_StdReturn : 28.562387466430664
+Train_MaxReturn : 140.0
+Train_MinReturn : 38.0
+Train_AverageEpLen : 92.7
+Actor Loss : 0.026234915480017662
+Baseline Loss : 762.4620971679688
+Train_EnvstepsSoFar : 249180
+TimeSinceStart : 17.367616891860962
+Done logging...
+
+
+
+********** Iteration 46 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  16%|█▋        | 817/5000 [00:00<00:00, 7402.78it/s]sampling trajectory:  69%|██████▉   | 3441/5000 [00:00<00:00, 17528.69it/s]sampling trajectory: 5400it [00:00, 19758.29it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  73%|███████▎  | 731/1000 [00:00<00:00, 7068.20it/s]sampling trajectory: 1210it [00:00, 8841.22it/s]                         
+Eval_AverageReturn : 119.75
+Eval_StdReturn : 60.213680267333984
+Eval_MaxReturn : 221.0
+Eval_MinReturn : 70.0
+Eval_AverageEpLen : 119.75
+Train_AverageReturn : 114.55555725097656
+Train_StdReturn : 31.85422134399414
+Train_MaxReturn : 169.0
+Train_MinReturn : 54.0
+Train_AverageEpLen : 114.55555555555556
+Actor Loss : -0.013033101335167885
+Baseline Loss : 1220.790283203125
+Train_EnvstepsSoFar : 254580
+TimeSinceStart : 17.7997989654541
+Done logging...
+
+
+
+********** Iteration 47 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▉        | 939/5000 [00:00<00:00, 8449.18it/s]sampling trajectory:  73%|███████▎  | 3655/5000 [00:00<00:00, 18827.24it/s]sampling trajectory: 5503it [00:00, 22095.08it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  78%|███████▊  | 784/1000 [00:00<00:00, 7554.01it/s]sampling trajectory: 1235it [00:00, 9004.61it/s]                         
+Eval_AverageReturn : 90.19999694824219
+Eval_StdReturn : 27.99571418762207
+Eval_MaxReturn : 136.0
+Eval_MinReturn : 55.0
+Eval_AverageEpLen : 90.2
+Train_AverageReturn : 96.4000015258789
+Train_StdReturn : 30.984512329101562
+Train_MaxReturn : 150.0
+Train_MinReturn : 60.0
+Train_AverageEpLen : 96.4
+Actor Loss : 0.00884279515594244
+Baseline Loss : 935.3062744140625
+Train_EnvstepsSoFar : 260083
+TimeSinceStart : 18.207090854644775
+Done logging...
+
+
+
+********** Iteration 48 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:   9%|▉         | 472/5000 [00:00<00:00, 4563.35it/s]sampling trajectory:  70%|███████   | 3512/5000 [00:00<00:00, 18146.56it/s]sampling trajectory: 5457it [00:00, 19644.97it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  70%|██████▉   | 699/1000 [00:00<00:00, 5629.28it/s]sampling trajectory: 1257it [00:00, 7346.27it/s]                         
+Eval_AverageReturn : 139.5
+Eval_StdReturn : 46.43544006347656
+Eval_MaxReturn : 211.0
+Eval_MinReturn : 94.0
+Eval_AverageEpLen : 139.5
+Train_AverageReturn : 116.55555725097656
+Train_StdReturn : 50.00246810913086
+Train_MaxReturn : 232.0
+Train_MinReturn : 57.0
+Train_AverageEpLen : 116.55555555555556
+Actor Loss : 0.00908729899674654
+Baseline Loss : 2256.531005859375
+Train_EnvstepsSoFar : 265540
+TimeSinceStart : 18.67979383468628
+Done logging...
+
+
+
+********** Iteration 49 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1076/5000 [00:00<00:00, 8241.79it/s]sampling trajectory:  70%|██████▉   | 3494/5000 [00:00<00:00, 16172.45it/s]sampling trajectory: 5768it [00:00, 20396.82it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  89%|████████▉ | 894/1000 [00:00<00:00, 8256.99it/s]sampling trajectory: 1348it [00:00, 10696.64it/s]                        
+Eval_AverageReturn : 113.5
+Eval_StdReturn : 50.801082611083984
+Eval_MaxReturn : 196.0
+Eval_MinReturn : 58.0
+Eval_AverageEpLen : 113.5
+Train_AverageReturn : 129.88888549804688
+Train_StdReturn : 60.40501022338867
+Train_MaxReturn : 254.0
+Train_MinReturn : 64.0
+Train_AverageEpLen : 129.88888888888889
+Actor Loss : -0.006157102063298225
+Baseline Loss : 3321.789794921875
+Train_EnvstepsSoFar : 271308
+TimeSinceStart : 19.110265731811523
+Done logging...
+
+
+
+********** Iteration 50 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  26%|██▋       | 1313/5000 [00:00<00:00, 8791.42it/s]sampling trajectory:  99%|█████████▉| 4950/5000 [00:00<00:00, 21762.74it/s]sampling trajectory: 6124it [00:00, 21649.44it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  64%|██████▍   | 645/1000 [00:00<00:00, 6126.64it/s]sampling trajectory: 1134it [00:00, 8596.98it/s]                         
+Eval_AverageReturn : 163.0
+Eval_StdReturn : 64.45153045654297
+Eval_MaxReturn : 248.0
+Eval_MinReturn : 92.0
+Eval_AverageEpLen : 163.0
+Train_AverageReturn : 130.44444274902344
+Train_StdReturn : 61.284603118896484
+Train_MaxReturn : 282.0
+Train_MinReturn : 60.0
+Train_AverageEpLen : 130.44444444444446
+Actor Loss : -0.01716378889977932
+Baseline Loss : 3481.88916015625
+Train_EnvstepsSoFar : 277432
+TimeSinceStart : 19.546449899673462
+Done logging...
+
+
+
+********** Iteration 51 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  23%|██▎       | 1151/5000 [00:00<00:00, 10658.39it/s]sampling trajectory:  74%|███████▎  | 3677/5000 [00:00<00:00, 17307.26it/s]sampling trajectory: 5932it [00:00, 20183.39it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1272it [00:00, 8925.93it/s]             sampling trajectory: 1272it [00:00, 8886.77it/s]
+Eval_AverageReturn : 105.80000305175781
+Eval_StdReturn : 68.0805435180664
+Eval_MaxReturn : 235.0
+Eval_MinReturn : 50.0
+Eval_AverageEpLen : 105.8
+Train_AverageReturn : 136.11111450195312
+Train_StdReturn : 61.896766662597656
+Train_MaxReturn : 287.0
+Train_MinReturn : 87.0
+Train_AverageEpLen : 136.11111111111111
+Actor Loss : -0.021022673696279526
+Baseline Loss : 3403.01220703125
+Train_EnvstepsSoFar : 283364
+TimeSinceStart : 20.00512194633484
+Done logging...
+
+
+
+********** Iteration 52 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  21%|██        | 1041/5000 [00:00<00:00, 9723.89it/s]sampling trajectory:  52%|█████▏    | 2608/5000 [00:00<00:00, 12858.67it/s]sampling trajectory: 5794it [00:00, 21184.41it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1360it [00:00, 10800.95it/s]            sampling trajectory: 1360it [00:00, 10756.33it/s]
+Eval_AverageReturn : 129.25
+Eval_StdReturn : 35.646705627441406
+Eval_MaxReturn : 184.0
+Eval_MinReturn : 85.0
+Eval_AverageEpLen : 129.25
+Train_AverageReturn : 143.125
+Train_StdReturn : 62.5108757019043
+Train_MaxReturn : 217.0
+Train_MinReturn : 70.0
+Train_AverageEpLen : 143.125
+Actor Loss : -0.014945105649530888
+Baseline Loss : 3253.269287109375
+Train_EnvstepsSoFar : 289158
+TimeSinceStart : 20.42746067047119
+Done logging...
+
+
+
+********** Iteration 53 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  29%|██▉       | 1470/5000 [00:00<00:00, 11879.18it/s]sampling trajectory:  90%|████████▉ | 4486/5000 [00:00<00:00, 19281.55it/s]sampling trajectory: 5684it [00:00, 19580.22it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1403it [00:00, 11724.99it/s]            sampling trajectory: 1403it [00:00, 11675.02it/s]
+Eval_AverageReturn : 78.0
+Eval_StdReturn : 46.19884490966797
+Eval_MaxReturn : 165.0
+Eval_MinReturn : 29.0
+Eval_AverageEpLen : 78.0
+Train_AverageReturn : 119.80000305175781
+Train_StdReturn : 48.96284103393555
+Train_MaxReturn : 192.0
+Train_MinReturn : 41.0
+Train_AverageEpLen : 119.8
+Actor Loss : -0.01450576726347208
+Baseline Loss : 2027.171142578125
+Train_EnvstepsSoFar : 294842
+TimeSinceStart : 20.85749077796936
+Done logging...
+
+
+
+********** Iteration 54 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 887/5000 [00:00<00:00, 8623.71it/s]sampling trajectory:  75%|███████▍  | 3729/5000 [00:00<00:00, 17628.73it/s]sampling trajectory: 5892it [00:00, 21097.63it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1227it [00:00, 9912.44it/s]             sampling trajectory: 1227it [00:00, 9864.37it/s]
+Eval_AverageReturn : 125.5
+Eval_StdReturn : 8.440971374511719
+Eval_MaxReturn : 140.0
+Eval_MinReturn : 119.0
+Eval_AverageEpLen : 125.5
+Train_AverageReturn : 114.4000015258789
+Train_StdReturn : 32.18757629394531
+Train_MaxReturn : 168.0
+Train_MinReturn : 65.0
+Train_AverageEpLen : 114.4
+Actor Loss : 0.01826915331184864
+Baseline Loss : 1309.5736083984375
+Train_EnvstepsSoFar : 300734
+TimeSinceStart : 21.279010772705078
+Done logging...
+
+
+
+********** Iteration 55 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1113/5000 [00:00<00:00, 7913.88it/s]sampling trajectory:  86%|████████▋ | 4314/5000 [00:00<00:00, 19895.96it/s]sampling trajectory: 5428it [00:00, 19437.42it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  66%|██████▌   | 660/1000 [00:00<00:00, 5969.81it/s]sampling trajectory: 1174it [00:00, 8788.87it/s]                         
+Eval_AverageReturn : 171.3333282470703
+Eval_StdReturn : 62.51577377319336
+Eval_MaxReturn : 231.0
+Eval_MinReturn : 85.0
+Eval_AverageEpLen : 171.33333333333334
+Train_AverageReturn : 123.77777862548828
+Train_StdReturn : 60.766910552978516
+Train_MaxReturn : 230.0
+Train_MinReturn : 41.0
+Train_AverageEpLen : 123.77777777777777
+Actor Loss : 0.0029695683624595404
+Baseline Loss : 2322.716796875
+Train_EnvstepsSoFar : 306162
+TimeSinceStart : 21.71083974838257
+Done logging...
+
+
+
+********** Iteration 56 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  27%|██▋       | 1329/5000 [00:00<00:00, 11142.31it/s]sampling trajectory:  90%|████████▉ | 4487/5000 [00:00<00:00, 20703.55it/s]sampling trajectory: 5655it [00:00, 20241.61it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  87%|████████▋ | 867/1000 [00:00<00:00, 7716.53it/s]sampling trajectory: 1380it [00:00, 10003.63it/s]                        
+Eval_AverageReturn : 128.25
+Eval_StdReturn : 26.714929580688477
+Eval_MaxReturn : 161.0
+Eval_MinReturn : 89.0
+Eval_AverageEpLen : 128.25
+Train_AverageReturn : 116.80000305175781
+Train_StdReturn : 55.62876892089844
+Train_MaxReturn : 198.0
+Train_MinReturn : 29.0
+Train_AverageEpLen : 116.8
+Actor Loss : -0.042954221367836
+Baseline Loss : 2042.220458984375
+Train_EnvstepsSoFar : 311817
+TimeSinceStart : 22.147563934326172
+Done logging...
+
+
+
+********** Iteration 57 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  29%|██▊       | 1432/5000 [00:00<00:00, 8543.53it/s]sampling trajectory:  89%|████████▉ | 4446/5000 [00:00<00:00, 18068.56it/s]sampling trajectory: 5770it [00:00, 18274.70it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  90%|█████████ | 902/1000 [00:00<00:00, 7756.07it/s]sampling trajectory: 1795it [00:00, 8430.47it/s]                         
+Eval_AverageReturn : 223.25
+Eval_StdReturn : 106.28352355957031
+Eval_MaxReturn : 400.0
+Eval_MinReturn : 123.0
+Eval_AverageEpLen : 223.25
+Train_AverageReturn : 165.5
+Train_StdReturn : 87.4757080078125
+Train_MaxReturn : 374.0
+Train_MinReturn : 62.0
+Train_AverageEpLen : 165.5
+Actor Loss : 0.015338940545916557
+Baseline Loss : 7493.4833984375
+Train_EnvstepsSoFar : 317587
+TimeSinceStart : 22.693864822387695
+Done logging...
+
+
+
+********** Iteration 58 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  31%|███       | 1528/5000 [00:00<00:00, 9904.06it/s]sampling trajectory: 5462it [00:00, 22322.57it/s]                         sampling trajectory: 5462it [00:00, 20156.37it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  80%|███████▉  | 798/1000 [00:00<00:00, 6477.59it/s]sampling trajectory: 1395it [00:00, 9740.73it/s]                         
+Eval_AverageReturn : 199.0
+Eval_StdReturn : 86.12781524658203
+Eval_MaxReturn : 281.0
+Eval_MinReturn : 80.0
+Eval_AverageEpLen : 199.0
+Train_AverageReturn : 132.3333282470703
+Train_StdReturn : 62.72160720825195
+Train_MaxReturn : 248.0
+Train_MinReturn : 38.0
+Train_AverageEpLen : 132.33333333333334
+Actor Loss : -0.07399857044219971
+Baseline Loss : 2933.764892578125
+Train_EnvstepsSoFar : 323049
+TimeSinceStart : 23.124588012695312
+Done logging...
+
+
+
+********** Iteration 59 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  26%|██▌       | 1288/5000 [00:00<00:00, 10336.91it/s]sampling trajectory:  93%|█████████▎| 4649/5000 [00:00<00:00, 20552.59it/s]sampling trajectory: 5844it [00:00, 21024.55it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1155it [00:00, 10595.57it/s]            sampling trajectory: 1155it [00:00, 10535.93it/s]
+Eval_AverageReturn : 112.5
+Eval_StdReturn : 34.29650115966797
+Eval_MaxReturn : 157.0
+Eval_MinReturn : 73.0
+Eval_AverageEpLen : 112.5
+Train_AverageReturn : 132.77777099609375
+Train_StdReturn : 36.665992736816406
+Train_MaxReturn : 181.0
+Train_MinReturn : 68.0
+Train_AverageEpLen : 132.77777777777777
+Actor Loss : -0.02616332285106182
+Baseline Loss : 1376.0604248046875
+Train_EnvstepsSoFar : 328893
+TimeSinceStart : 23.529513835906982
+Done logging...
+
+
+
+********** Iteration 60 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  16%|█▌        | 801/5000 [00:00<00:00, 6629.69it/s]sampling trajectory:  70%|██████▉   | 3478/5000 [00:00<00:00, 14509.46it/s]sampling trajectory: 6271it [00:00, 18174.29it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1375it [00:00, 13635.48it/s]            sampling trajectory: 1375it [00:00, 13573.29it/s]
+Eval_AverageReturn : 84.19999694824219
+Eval_StdReturn : 30.740203857421875
+Eval_MaxReturn : 115.0
+Eval_MinReturn : 29.0
+Eval_AverageEpLen : 84.2
+Train_AverageReturn : 216.57142639160156
+Train_StdReturn : 54.423885345458984
+Train_MaxReturn : 287.0
+Train_MinReturn : 142.0
+Train_AverageEpLen : 216.57142857142858
+Actor Loss : 0.008345489390194416
+Baseline Loss : 5320.3330078125
+Train_EnvstepsSoFar : 335164
+TimeSinceStart : 23.993966817855835
+Done logging...
+
+
+
+********** Iteration 61 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  27%|██▋       | 1342/5000 [00:00<00:00, 9854.23it/s]sampling trajectory: 5942it [00:00, 25262.74it/s]                         sampling trajectory: 5942it [00:00, 22800.87it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1058it [00:00, 9456.29it/s]             sampling trajectory: 1058it [00:00, 9416.82it/s]
+Eval_AverageReturn : 159.3333282470703
+Eval_StdReturn : 70.62262725830078
+Eval_MaxReturn : 240.0
+Eval_MinReturn : 68.0
+Eval_AverageEpLen : 159.33333333333334
+Train_AverageReturn : 126.77777862548828
+Train_StdReturn : 50.094970703125
+Train_MaxReturn : 203.0
+Train_MinReturn : 50.0
+Train_AverageEpLen : 126.77777777777777
+Actor Loss : 0.002789270831272006
+Baseline Loss : 2240.090087890625
+Train_EnvstepsSoFar : 341106
+TimeSinceStart : 24.38321280479431
+Done logging...
+
+
+
+********** Iteration 62 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  22%|██▏       | 1086/5000 [00:00<00:00, 8536.32it/s]sampling trajectory:  74%|███████▍  | 3688/5000 [00:00<00:00, 17619.60it/s]sampling trajectory: 6082it [00:00, 20764.19it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  94%|█████████▎| 935/1000 [00:00<00:00, 9177.82it/s]sampling trajectory: 1525it [00:00, 10829.59it/s]                        
+Eval_AverageReturn : 147.5
+Eval_StdReturn : 40.52468490600586
+Eval_MaxReturn : 205.0
+Eval_MinReturn : 93.0
+Eval_AverageEpLen : 147.5
+Train_AverageReturn : 155.5
+Train_StdReturn : 44.59260177612305
+Train_MaxReturn : 222.0
+Train_MinReturn : 94.0
+Train_AverageEpLen : 155.5
+Actor Loss : -0.027733001857995987
+Baseline Loss : 2091.581298828125
+Train_EnvstepsSoFar : 347188
+TimeSinceStart : 24.83394980430603
+Done logging...
+
+
+
+********** Iteration 63 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  23%|██▎       | 1168/5000 [00:00<00:00, 7998.80it/s]sampling trajectory: 6262it [00:00, 22130.37it/s]                         sampling trajectory: 6262it [00:00, 20109.51it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1258it [00:00, 9687.27it/s]             sampling trajectory: 1258it [00:00, 9645.83it/s]
+Eval_AverageReturn : 127.5
+Eval_StdReturn : 42.75804138183594
+Eval_MaxReturn : 170.0
+Eval_MinReturn : 63.0
+Eval_AverageEpLen : 127.5
+Train_AverageReturn : 172.5
+Train_StdReturn : 84.08477783203125
+Train_MaxReturn : 304.0
+Train_MinReturn : 35.0
+Train_AverageEpLen : 172.5
+Actor Loss : 0.012370282784104347
+Baseline Loss : 4820.703125
+Train_EnvstepsSoFar : 353450
+TimeSinceStart : 25.294124603271484
+Done logging...
+
+
+
+********** Iteration 64 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  29%|██▉       | 1467/5000 [00:00<00:00, 10787.94it/s]sampling trajectory:  86%|████████▌ | 4297/5000 [00:00<00:00, 17768.85it/s]sampling trajectory: 5752it [00:00, 17137.35it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  73%|███████▎  | 734/1000 [00:00<00:00, 7083.16it/s]sampling trajectory: 1260it [00:00, 8952.03it/s]                         
+Eval_AverageReturn : 131.5
+Eval_StdReturn : 37.68620300292969
+Eval_MaxReturn : 170.0
+Eval_MinReturn : 69.0
+Eval_AverageEpLen : 131.5
+Train_AverageReturn : 161.6666717529297
+Train_StdReturn : 83.41062927246094
+Train_MaxReturn : 325.0
+Train_MinReturn : 48.0
+Train_AverageEpLen : 161.66666666666666
+Actor Loss : 0.00562946917489171
+Baseline Loss : 4921.80517578125
+Train_EnvstepsSoFar : 359202
+TimeSinceStart : 25.788397789001465
+Done logging...
+
+
+
+********** Iteration 65 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 907/5000 [00:00<00:00, 8880.91it/s]sampling trajectory:  63%|██████▎   | 3167/5000 [00:00<00:00, 16722.05it/s]sampling trajectory: 5390it [00:00, 18687.30it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  97%|█████████▋| 971/1000 [00:00<00:00, 6550.89it/s]sampling trajectory: 1843it [00:00, 8509.71it/s]                         
+Eval_AverageReturn : 290.6666564941406
+Eval_StdReturn : 67.05387878417969
+Eval_MaxReturn : 378.0
+Eval_MinReturn : 215.0
+Eval_AverageEpLen : 290.6666666666667
+Train_AverageReturn : 150.25
+Train_StdReturn : 48.44261932373047
+Train_MaxReturn : 215.0
+Train_MinReturn : 73.0
+Train_AverageEpLen : 150.25
+Actor Loss : 0.022103985771536827
+Baseline Loss : 1696.7587890625
+Train_EnvstepsSoFar : 364592
+TimeSinceStart : 26.310744762420654
+Done logging...
+
+
+
+********** Iteration 66 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  23%|██▎       | 1151/5000 [00:00<00:00, 9947.01it/s]sampling trajectory:  63%|██████▎   | 3143/5000 [00:00<00:00, 12445.00it/s]sampling trajectory: 6098it [00:00, 18058.98it/s]                          sampling trajectory: 6098it [00:00, 16271.62it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  65%|██████▌   | 650/1000 [00:00<00:00, 6246.63it/s]sampling trajectory: 1184it [00:00, 8873.03it/s]                         
+Eval_AverageReturn : 178.0
+Eval_StdReturn : 49.846431732177734
+Eval_MaxReturn : 225.0
+Eval_MinReturn : 109.0
+Eval_AverageEpLen : 178.0
+Train_AverageReturn : 177.11111450195312
+Train_StdReturn : 105.58981323242188
+Train_MaxReturn : 390.0
+Train_MinReturn : 35.0
+Train_AverageEpLen : 177.11111111111111
+Actor Loss : -0.031115055084228516
+Baseline Loss : 7397.69384765625
+Train_EnvstepsSoFar : 370690
+TimeSinceStart : 26.84017777442932
+Done logging...
+
+
+
+********** Iteration 67 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:   8%|▊         | 423/5000 [00:00<00:01, 4094.23it/s]sampling trajectory:  40%|███▉      | 1993/5000 [00:00<00:00, 9892.69it/s]sampling trajectory:  91%|█████████ | 4547/5000 [00:00<00:00, 15833.63it/s]sampling trajectory: 6088it [00:00, 16420.51it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1142it [00:00, 8832.18it/s]             sampling trajectory: 1142it [00:00, 8792.93it/s]
+Eval_AverageReturn : 173.3333282470703
+Eval_StdReturn : 62.19503402709961
+Eval_MaxReturn : 257.0
+Eval_MinReturn : 108.0
+Eval_AverageEpLen : 173.33333333333334
+Train_AverageReturn : 256.8333435058594
+Train_StdReturn : 81.80345916748047
+Train_MaxReturn : 423.0
+Train_MinReturn : 161.0
+Train_AverageEpLen : 256.8333333333333
+Actor Loss : 0.0013966907281428576
+Baseline Loss : 9956.662109375
+Train_EnvstepsSoFar : 376778
+TimeSinceStart : 27.358543872833252
+Done logging...
+
+
+
+********** Iteration 68 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  17%|█▋        | 856/5000 [00:00<00:00, 7193.22it/s]sampling trajectory:  67%|██████▋   | 3347/5000 [00:00<00:00, 15214.59it/s]sampling trajectory: 5909it [00:00, 18097.58it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1106it [00:00, 9322.23it/s]             sampling trajectory: 1106it [00:00, 9279.75it/s]
+Eval_AverageReturn : 118.25
+Eval_StdReturn : 27.307279586791992
+Eval_MaxReturn : 141.0
+Eval_MinReturn : 72.0
+Eval_AverageEpLen : 118.25
+Train_AverageReturn : 195.85714721679688
+Train_StdReturn : 69.25611114501953
+Train_MaxReturn : 361.0
+Train_MinReturn : 134.0
+Train_AverageEpLen : 195.85714285714286
+Actor Loss : -0.0024261772632598877
+Baseline Loss : 4610.6513671875
+Train_EnvstepsSoFar : 382687
+TimeSinceStart : 27.823911905288696
+Done logging...
+
+
+
+********** Iteration 69 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  21%|██        | 1048/5000 [00:00<00:00, 8297.38it/s]sampling trajectory:  55%|█████▌    | 2751/5000 [00:00<00:00, 12629.24it/s]sampling trajectory: 5225it [00:00, 16557.25it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1093it [00:00, 7377.75it/s]             sampling trajectory: 1093it [00:00, 7349.47it/s]
+Eval_AverageReturn : 198.0
+Eval_StdReturn : 40.207794189453125
+Eval_MaxReturn : 238.0
+Eval_MinReturn : 143.0
+Eval_AverageEpLen : 198.0
+Train_AverageReturn : 166.875
+Train_StdReturn : 65.25801849365234
+Train_MaxReturn : 250.0
+Train_MinReturn : 60.0
+Train_AverageEpLen : 166.875
+Actor Loss : -0.04236355423927307
+Baseline Loss : 2989.501953125
+Train_EnvstepsSoFar : 387912
+TimeSinceStart : 28.30626893043518
+Done logging...
+
+
+
+********** Iteration 70 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  24%|██▍       | 1199/5000 [00:00<00:00, 7274.88it/s]sampling trajectory: 5116it [00:00, 19747.84it/s]                         sampling trajectory: 5116it [00:00, 17585.72it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  97%|█████████▋| 973/1000 [00:00<00:00, 7662.56it/s]sampling trajectory: 1710it [00:00, 9290.25it/s]                         
+Eval_AverageReturn : 184.25
+Eval_StdReturn : 36.23793029785156
+Eval_MaxReturn : 240.0
+Eval_MinReturn : 143.0
+Eval_AverageEpLen : 184.25
+Train_AverageReturn : 173.42857360839844
+Train_StdReturn : 78.50906372070312
+Train_MaxReturn : 312.0
+Train_MinReturn : 73.0
+Train_AverageEpLen : 173.42857142857142
+Actor Loss : -0.012213923037052155
+Baseline Loss : 4027.656005859375
+Train_EnvstepsSoFar : 393028
+TimeSinceStart : 28.80065894126892
+Done logging...
+
+
+
+********** Iteration 71 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  17%|█▋        | 847/5000 [00:00<00:00, 8322.11it/s]sampling trajectory:  82%|████████▎ | 4125/5000 [00:00<00:00, 18926.50it/s]sampling trajectory: 5365it [00:00, 18803.13it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  57%|█████▋    | 573/1000 [00:00<00:00, 5249.66it/s]sampling trajectory: 1221it [00:00, 8094.41it/s]                         
+Eval_AverageReturn : 216.0
+Eval_StdReturn : 111.07655334472656
+Eval_MaxReturn : 367.0
+Eval_MinReturn : 103.0
+Eval_AverageEpLen : 216.0
+Train_AverageReturn : 155.0
+Train_StdReturn : 51.734901428222656
+Train_MaxReturn : 225.0
+Train_MinReturn : 77.0
+Train_AverageEpLen : 155.0
+Actor Loss : -0.014811803586781025
+Baseline Loss : 1824.429443359375
+Train_EnvstepsSoFar : 398393
+TimeSinceStart : 29.25368595123291
+Done logging...
+
+
+
+********** Iteration 72 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  29%|██▉       | 1440/5000 [00:00<00:00, 8974.47it/s]sampling trajectory:  94%|█████████▍| 4696/5000 [00:00<00:00, 16558.61it/s]sampling trajectory: 6245it [00:00, 17838.92it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  70%|██████▉   | 699/1000 [00:00<00:00, 5892.26it/s]sampling trajectory: 1397it [00:00, 8261.18it/s]                         
+Eval_AverageReturn : 232.6666717529297
+Eval_StdReturn : 28.52289390563965
+Eval_MaxReturn : 273.0
+Eval_MinReturn : 212.0
+Eval_AverageEpLen : 232.66666666666666
+Train_AverageReturn : 193.625
+Train_StdReturn : 85.36237335205078
+Train_MaxReturn : 349.0
+Train_MinReturn : 78.0
+Train_AverageEpLen : 193.625
+Actor Loss : 0.001698609092272818
+Baseline Loss : 6955.1015625
+Train_EnvstepsSoFar : 404638
+TimeSinceStart : 29.790469884872437
+Done logging...
+
+
+
+********** Iteration 73 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  25%|██▌       | 1256/5000 [00:00<00:00, 10763.94it/s]sampling trajectory:  64%|██████▍   | 3221/5000 [00:00<00:00, 14623.33it/s]sampling trajectory: 5699it [00:00, 19240.38it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  88%|████████▊ | 885/1000 [00:00<00:00, 6078.84it/s]sampling trajectory: 1683it [00:00, 8967.81it/s]                         
+Eval_AverageReturn : 266.0
+Eval_StdReturn : 75.9868392944336
+Eval_MaxReturn : 361.0
+Eval_MinReturn : 175.0
+Eval_AverageEpLen : 266.0
+Train_AverageReturn : 164.5
+Train_StdReturn : 103.45893096923828
+Train_MaxReturn : 430.0
+Train_MinReturn : 73.0
+Train_AverageEpLen : 164.5
+Actor Loss : -0.018877940252423286
+Baseline Loss : 8847.5302734375
+Train_EnvstepsSoFar : 410337
+TimeSinceStart : 30.29228687286377
+Done logging...
+
+
+
+********** Iteration 74 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  14%|█▍        | 688/5000 [00:00<00:00, 6787.23it/s]sampling trajectory:  62%|██████▏   | 3086/5000 [00:00<00:00, 15651.11it/s]sampling trajectory: 5637it [00:00, 18885.43it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  56%|█████▋    | 563/1000 [00:00<00:00, 4190.85it/s]sampling trajectory: 1233it [00:00, 7653.24it/s]                         
+Eval_AverageReturn : 335.0
+Eval_StdReturn : 228.0
+Eval_MaxReturn : 563.0
+Eval_MinReturn : 107.0
+Eval_AverageEpLen : 335.0
+Train_AverageReturn : 191.42857360839844
+Train_StdReturn : 58.87725067138672
+Train_MaxReturn : 261.0
+Train_MinReturn : 112.0
+Train_AverageEpLen : 191.42857142857142
+Actor Loss : 0.027659038081765175
+Baseline Loss : 2527.17919921875
+Train_EnvstepsSoFar : 415974
+TimeSinceStart : 30.76874804496765
+Done logging...
+
+
+
+********** Iteration 75 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  27%|██▋       | 1345/5000 [00:00<00:00, 8000.08it/s]sampling trajectory: 100%|█████████▉| 4986/5000 [00:00<00:00, 16432.73it/s]sampling trajectory: 6701it [00:00, 17437.48it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1305it [00:00, 7237.74it/s]             sampling trajectory: 1305it [00:00, 7222.44it/s]
+Eval_AverageReturn : 262.3333435058594
+Eval_StdReturn : 113.82540130615234
+Eval_MaxReturn : 418.0
+Eval_MinReturn : 149.0
+Eval_AverageEpLen : 262.3333333333333
+Train_AverageReturn : 245.0
+Train_StdReturn : 57.11892318725586
+Train_MaxReturn : 319.0
+Train_MinReturn : 146.0
+Train_AverageEpLen : 245.0
+Actor Loss : 0.014626196585595608
+Baseline Loss : 5706.23486328125
+Train_EnvstepsSoFar : 422675
+TimeSinceStart : 31.352559804916382
+Done logging...
+
+
+
+********** Iteration 76 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▊        | 932/5000 [00:00<00:00, 6857.44it/s]sampling trajectory:  81%|████████▏ | 4063/5000 [00:00<00:00, 15597.57it/s]sampling trajectory: 5573it [00:00, 16471.46it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1281it [00:00, 6986.44it/s]             sampling trajectory: 1281it [00:00, 6966.91it/s]
+Eval_AverageReturn : 258.3333435058594
+Eval_StdReturn : 111.893798828125
+Eval_MaxReturn : 408.0
+Eval_MinReturn : 139.0
+Eval_AverageEpLen : 258.3333333333333
+Train_AverageReturn : 251.6666717529297
+Train_StdReturn : 52.18450164794922
+Train_MaxReturn : 317.0
+Train_MinReturn : 155.0
+Train_AverageEpLen : 251.66666666666666
+Actor Loss : -0.02281351573765278
+Baseline Loss : 5151.9296875
+Train_EnvstepsSoFar : 428248
+TimeSinceStart : 31.892241954803467
+Done logging...
+
+
+
+********** Iteration 77 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▉        | 955/5000 [00:00<00:00, 7537.61it/s]sampling trajectory:  58%|█████▊    | 2900/5000 [00:00<00:00, 12119.32it/s]sampling trajectory: 5901it [00:00, 19116.40it/s]                          sampling trajectory: 5901it [00:00, 16579.39it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1123it [00:00, 8483.35it/s]             sampling trajectory: 1123it [00:00, 8453.27it/s]
+Eval_AverageReturn : 191.3333282470703
+Eval_StdReturn : 10.530379295349121
+Eval_MaxReturn : 202.0
+Eval_MinReturn : 177.0
+Eval_AverageEpLen : 191.33333333333334
+Train_AverageReturn : 263.8333435058594
+Train_StdReturn : 80.1528091430664
+Train_MaxReturn : 394.0
+Train_MinReturn : 165.0
+Train_AverageEpLen : 263.8333333333333
+Actor Loss : -0.012702444568276405
+Baseline Loss : 7335.26708984375
+Train_EnvstepsSoFar : 434149
+TimeSinceStart : 32.39922475814819
+Done logging...
+
+
+
+********** Iteration 78 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  13%|█▎        | 674/5000 [00:00<00:00, 6466.35it/s]sampling trajectory:  35%|███▌      | 1765/5000 [00:00<00:00, 7378.58it/s]sampling trajectory: 5101it [00:00, 13351.11it/s]                         sampling trajectory: 5101it [00:00, 11941.89it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  84%|████████▎ | 837/1000 [00:00<00:00, 5442.81it/s]sampling trajectory: 1720it [00:00, 8373.25it/s]                         
+Eval_AverageReturn : 294.3333435058594
+Eval_StdReturn : 136.12332153320312
+Eval_MaxReturn : 485.0
+Eval_MinReturn : 176.0
+Eval_AverageEpLen : 294.3333333333333
+Train_AverageReturn : 380.79998779296875
+Train_StdReturn : 153.48927307128906
+Train_MaxReturn : 630.0
+Train_MinReturn : 213.0
+Train_AverageEpLen : 380.8
+Actor Loss : -0.007910321466624737
+Baseline Loss : 31417.7734375
+Train_EnvstepsSoFar : 439250
+TimeSinceStart : 33.051116704940796
+Done logging...
+
+
+
+********** Iteration 79 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 880/5000 [00:00<00:00, 6853.91it/s]sampling trajectory:  42%|████▏     | 2099/5000 [00:00<00:00, 7892.92it/s]sampling trajectory: 5319it [00:00, 16218.82it/s]                         sampling trajectory: 5319it [00:00, 13761.44it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  70%|██████▉   | 698/1000 [00:00<00:00, 4189.42it/s]sampling trajectory: 1528it [00:00, 7734.17it/s]                         
+Eval_AverageReturn : 415.0
+Eval_StdReturn : 283.0
+Eval_MaxReturn : 698.0
+Eval_MinReturn : 132.0
+Eval_AverageEpLen : 415.0
+Train_AverageReturn : 346.79998779296875
+Train_StdReturn : 150.8395233154297
+Train_MaxReturn : 646.0
+Train_MinReturn : 248.0
+Train_AverageEpLen : 346.8
+Actor Loss : 0.01006133109331131
+Baseline Loss : 28887.623046875
+Train_EnvstepsSoFar : 444569
+TimeSinceStart : 33.65315365791321
+Done logging...
+
+
+
+********** Iteration 80 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|██        | 1004/5000 [00:00<00:00, 5858.15it/s]sampling trajectory:  67%|██████▋   | 3353/5000 [00:00<00:00, 11034.51it/s]sampling trajectory: 5247it [00:00, 13606.40it/s]                          sampling trajectory: 5247it [00:00, 12170.60it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  87%|████████▋ | 869/1000 [00:00<00:00, 7658.02it/s]sampling trajectory: 1439it [00:00, 10379.49it/s]                        
+Eval_AverageReturn : 190.0
+Eval_StdReturn : 152.38328552246094
+Eval_MaxReturn : 404.0
+Eval_MinReturn : 61.0
+Eval_AverageEpLen : 190.0
+Train_AverageReturn : 378.79998779296875
+Train_StdReturn : 162.2903594970703
+Train_MaxReturn : 571.0
+Train_MinReturn : 135.0
+Train_AverageEpLen : 378.8
+Actor Loss : -0.0048817298375070095
+Baseline Loss : 29456.392578125
+Train_EnvstepsSoFar : 449816
+TimeSinceStart : 34.242873668670654
+Done logging...
+
+
+
+********** Iteration 81 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  14%|█▍        | 725/5000 [00:00<00:00, 5265.34it/s]sampling trajectory:  74%|███████▎  | 3685/5000 [00:00<00:00, 13994.21it/s]sampling trajectory: 5168it [00:00, 15723.78it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  91%|█████████ | 909/1000 [00:00<00:00, 4224.22it/s]sampling trajectory: 2208it [00:00, 7280.31it/s]                         
+Eval_AverageReturn : 649.5
+Eval_StdReturn : 259.5
+Eval_MaxReturn : 909.0
+Eval_MinReturn : 390.0
+Eval_AverageEpLen : 649.5
+Train_AverageReturn : 247.1666717529297
+Train_StdReturn : 155.79945373535156
+Train_MaxReturn : 515.0
+Train_MinReturn : 105.0
+Train_AverageEpLen : 247.16666666666666
+Actor Loss : -0.022232303395867348
+Baseline Loss : 19549.4453125
+Train_EnvstepsSoFar : 454984
+TimeSinceStart : 34.893189907073975
+Done logging...
+
+
+
+********** Iteration 82 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|█▉        | 979/5000 [00:00<00:00, 6201.81it/s]sampling trajectory:  60%|█████▉    | 2990/5000 [00:00<00:00, 12521.01it/s]sampling trajectory: 6468it [00:00, 15537.18it/s]                          sampling trajectory: 6468it [00:00, 14126.40it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1165it [00:00, 5607.92it/s]             sampling trajectory: 1165it [00:00, 5593.03it/s]
+Eval_AverageReturn : 447.0
+Eval_StdReturn : 176.0
+Eval_MaxReturn : 623.0
+Eval_MinReturn : 271.0
+Eval_AverageEpLen : 447.0
+Train_AverageReturn : 327.6666564941406
+Train_StdReturn : 83.59159851074219
+Train_MaxReturn : 454.0
+Train_MinReturn : 216.0
+Train_AverageEpLen : 327.6666666666667
+Actor Loss : 0.011465487070381641
+Baseline Loss : 12507.6728515625
+Train_EnvstepsSoFar : 461452
+TimeSinceStart : 35.57955288887024
+Done logging...
+
+
+
+********** Iteration 83 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▊        | 927/5000 [00:00<00:01, 3873.18it/s]sampling trajectory:  56%|█████▋    | 2823/5000 [00:00<00:00, 8586.19it/s]sampling trajectory: 6127it [00:00, 13794.29it/s]                         sampling trajectory: 6127it [00:00, 11563.78it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1052it [00:00, 8569.21it/s]             sampling trajectory: 1052it [00:00, 8522.08it/s]
+Eval_AverageReturn : 148.3333282470703
+Eval_StdReturn : 85.81504821777344
+Eval_MaxReturn : 268.0
+Eval_MinReturn : 71.0
+Eval_AverageEpLen : 148.33333333333334
+Train_AverageReturn : 301.8333435058594
+Train_StdReturn : 79.88619995117188
+Train_MaxReturn : 372.0
+Train_MinReturn : 132.0
+Train_AverageEpLen : 301.8333333333333
+Actor Loss : -0.02325776033103466
+Baseline Loss : 8902.2333984375
+Train_EnvstepsSoFar : 467579
+TimeSinceStart : 36.26366376876831
+Done logging...
+
+
+
+********** Iteration 84 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  12%|█▏        | 616/5000 [00:00<00:00, 5975.36it/s]sampling trajectory:  43%|████▎     | 2167/5000 [00:00<00:00, 11001.26it/s]sampling trajectory: 5708it [00:00, 19852.45it/s]                          sampling trajectory: 5708it [00:00, 17098.00it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1065it [00:00, 7246.02it/s]             sampling trajectory: 1065it [00:00, 7217.69it/s]
+Eval_AverageReturn : 199.3333282470703
+Eval_StdReturn : 78.01851654052734
+Eval_MaxReturn : 305.0
+Eval_MinReturn : 119.0
+Eval_AverageEpLen : 199.33333333333334
+Train_AverageReturn : 192.42857360839844
+Train_StdReturn : 64.2958755493164
+Train_MaxReturn : 324.0
+Train_MinReturn : 117.0
+Train_AverageEpLen : 192.42857142857142
+Actor Loss : -0.04294800013303757
+Baseline Loss : 5629.1533203125
+Train_EnvstepsSoFar : 473287
+TimeSinceStart : 36.76612877845764
+Done logging...
+
+
+
+********** Iteration 85 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  15%|█▍        | 740/5000 [00:00<00:00, 5671.54it/s]sampling trajectory:  53%|█████▎    | 2671/5000 [00:00<00:00, 10136.92it/s]sampling trajectory: 5516it [00:00, 16264.99it/s]                          sampling trajectory: 5516it [00:00, 14049.03it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  95%|█████████▍| 947/1000 [00:00<00:00, 8532.00it/s]sampling trajectory: 1502it [00:00, 10231.77it/s]                        
+Eval_AverageReturn : 138.75
+Eval_StdReturn : 47.56771469116211
+Eval_MaxReturn : 216.0
+Eval_MinReturn : 99.0
+Eval_AverageEpLen : 138.75
+Train_AverageReturn : 268.6666564941406
+Train_StdReturn : 115.3410415649414
+Train_MaxReturn : 409.0
+Train_MinReturn : 63.0
+Train_AverageEpLen : 268.6666666666667
+Actor Loss : 0.029131030663847923
+Baseline Loss : 8995.7421875
+Train_EnvstepsSoFar : 478803
+TimeSinceStart : 37.331368923187256
+Done logging...
+
+
+
+********** Iteration 86 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  23%|██▎       | 1145/5000 [00:00<00:00, 8181.55it/s]sampling trajectory:  82%|████████▏ | 4123/5000 [00:00<00:00, 15901.07it/s]sampling trajectory: 5587it [00:00, 16304.07it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1373it [00:00, 5928.56it/s]             sampling trajectory: 1373it [00:00, 5914.68it/s]
+Eval_AverageReturn : 317.3333435058594
+Eval_StdReturn : 220.66917419433594
+Eval_MaxReturn : 612.0
+Eval_MinReturn : 81.0
+Eval_AverageEpLen : 317.3333333333333
+Train_AverageReturn : 209.14285278320312
+Train_StdReturn : 49.596736907958984
+Train_MaxReturn : 271.0
+Train_MinReturn : 135.0
+Train_AverageEpLen : 209.14285714285714
+Actor Loss : -0.009369573555886745
+Baseline Loss : 2649.6162109375
+Train_EnvstepsSoFar : 484390
+TimeSinceStart : 37.92444181442261
+Done logging...
+
+
+
+********** Iteration 87 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  15%|█▌        | 756/5000 [00:00<00:00, 6146.13it/s]sampling trajectory:  91%|█████████ | 4546/5000 [00:00<00:00, 12638.75it/s]sampling trajectory: 6371it [00:00, 14887.80it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  93%|█████████▎| 929/1000 [00:00<00:00, 6413.21it/s]sampling trajectory: 1827it [00:00, 8246.74it/s]                         
+Eval_AverageReturn : 224.5
+Eval_StdReturn : 99.7760009765625
+Eval_MaxReturn : 323.0
+Eval_MinReturn : 100.0
+Eval_AverageEpLen : 224.5
+Train_AverageReturn : 260.71429443359375
+Train_StdReturn : 231.55543518066406
+Train_MaxReturn : 801.0
+Train_MinReturn : 71.0
+Train_AverageEpLen : 260.7142857142857
+Actor Loss : -0.03205089643597603
+Baseline Loss : 54674.78515625
+Train_EnvstepsSoFar : 490761
+TimeSinceStart : 38.593443870544434
+Done logging...
+
+
+
+********** Iteration 88 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 915/5000 [00:00<00:00, 7273.17it/s]sampling trajectory:  81%|████████  | 4032/5000 [00:00<00:00, 12602.48it/s]sampling trajectory: 5909it [00:00, 13802.85it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  74%|███████▍  | 738/1000 [00:00<00:00, 6896.37it/s]sampling trajectory: 1514it [00:00, 8348.73it/s]                         
+Eval_AverageReturn : 258.6666564941406
+Eval_StdReturn : 50.97276306152344
+Eval_MaxReturn : 312.0
+Eval_MinReturn : 190.0
+Eval_AverageEpLen : 258.6666666666667
+Train_AverageReturn : 312.8333435058594
+Train_StdReturn : 132.69314575195312
+Train_MaxReturn : 510.0
+Train_MinReturn : 125.0
+Train_AverageEpLen : 312.8333333333333
+Actor Loss : -0.01794508844614029
+Baseline Loss : 16384.291015625
+Train_EnvstepsSoFar : 496670
+TimeSinceStart : 39.221516609191895
+Done logging...
+
+
+
+********** Iteration 89 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  18%|█▊        | 883/5000 [00:00<00:00, 7641.46it/s]sampling trajectory:  57%|█████▋    | 2826/5000 [00:00<00:00, 12559.70it/s]sampling trajectory:  85%|████████▌ | 4271/5000 [00:00<00:00, 13292.71it/s]sampling trajectory: 6105it [00:00, 14281.50it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1695it [00:00, 6064.56it/s]             sampling trajectory: 1695it [00:00, 6053.38it/s]
+Eval_AverageReturn : 405.3333435058594
+Eval_StdReturn : 338.82379150390625
+Eval_MaxReturn : 884.0
+Eval_MinReturn : 147.0
+Eval_AverageEpLen : 405.3333333333333
+Train_AverageReturn : 305.6666564941406
+Train_StdReturn : 113.91761016845703
+Train_MaxReturn : 398.0
+Train_MinReturn : 139.0
+Train_AverageEpLen : 305.6666666666667
+Actor Loss : 0.00045349032734520733
+Baseline Loss : 12746.5361328125
+Train_EnvstepsSoFar : 502775
+TimeSinceStart : 39.94682788848877
+Done logging...
+
+
+
+********** Iteration 90 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▊        | 928/5000 [00:00<00:00, 6620.63it/s]sampling trajectory:  78%|███████▊  | 3880/5000 [00:00<00:00, 9756.06it/s]sampling trajectory: 6247it [00:00, 13367.69it/s]                         sampling trajectory: 6247it [00:00, 12038.14it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1261it [00:00, 7641.83it/s]             sampling trajectory: 1261it [00:00, 7619.79it/s]
+Eval_AverageReturn : 236.6666717529297
+Eval_StdReturn : 85.94701385498047
+Eval_MaxReturn : 356.0
+Eval_MinReturn : 157.0
+Eval_AverageEpLen : 236.66666666666666
+Train_AverageReturn : 473.3999938964844
+Train_StdReturn : 175.56719970703125
+Train_MaxReturn : 794.0
+Train_MinReturn : 295.0
+Train_AverageEpLen : 473.4
+Actor Loss : 0.004544384311884642
+Baseline Loss : 47829.75390625
+Train_EnvstepsSoFar : 509022
+TimeSinceStart : 40.651357889175415
+Done logging...
+
+
+
+********** Iteration 91 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  13%|█▎        | 661/5000 [00:00<00:00, 5799.60it/s]sampling trajectory:  49%|████▉     | 2438/5000 [00:00<00:00, 12188.09it/s]sampling trajectory: 5187it [00:00, 17415.19it/s]                          sampling trajectory: 5187it [00:00, 15359.54it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1245it [00:00, 5817.82it/s]             sampling trajectory: 1245it [00:00, 5805.31it/s]
+Eval_AverageReturn : 466.5
+Eval_StdReturn : 154.5
+Eval_MaxReturn : 621.0
+Eval_MinReturn : 312.0
+Eval_AverageEpLen : 466.5
+Train_AverageReturn : 249.5
+Train_StdReturn : 75.96874237060547
+Train_MaxReturn : 359.0
+Train_MinReturn : 151.0
+Train_AverageEpLen : 249.5
+Actor Loss : 0.003902219235897064
+Baseline Loss : 8517.0234375
+Train_EnvstepsSoFar : 514209
+TimeSinceStart : 41.22091794013977
+Done logging...
+
+
+
+********** Iteration 92 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|██        | 1000/5000 [00:00<00:00, 4484.99it/s]sampling trajectory: 5269it [00:00, 17592.04it/s]                         sampling trajectory: 5269it [00:00, 15059.72it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  92%|█████████▏| 920/1000 [00:00<00:00, 5446.10it/s]sampling trajectory: 2018it [00:00, 7956.09it/s]                         
+Eval_AverageReturn : 366.0
+Eval_StdReturn : 130.91473388671875
+Eval_MaxReturn : 520.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 366.0
+Train_AverageReturn : 391.75
+Train_StdReturn : 360.4083557128906
+Train_MaxReturn : 1000.0
+Train_MinReturn : 82.0
+Train_AverageEpLen : 391.75
+Actor Loss : 0.003070679260417819
+Baseline Loss : 127201.6953125
+Train_EnvstepsSoFar : 519478
+TimeSinceStart : 41.84207892417908
+Done logging...
+
+
+
+********** Iteration 93 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  17%|█▋        | 832/5000 [00:00<00:00, 4965.75it/s]sampling trajectory:  73%|███████▎  | 3652/5000 [00:00<00:00, 9779.31it/s]sampling trajectory: 5637it [00:00, 12864.29it/s]                         
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  93%|█████████▎| 926/1000 [00:00<00:00, 7337.37it/s]sampling trajectory: 1717it [00:00, 9262.55it/s]                         
+Eval_AverageReturn : 263.6666564941406
+Eval_StdReturn : 89.46631622314453
+Eval_MaxReturn : 381.0
+Eval_MinReturn : 164.0
+Eval_AverageEpLen : 263.6666666666667
+Train_AverageReturn : 397.0
+Train_StdReturn : 290.4369201660156
+Train_MaxReturn : 802.0
+Train_MinReturn : 74.0
+Train_AverageEpLen : 397.0
+Actor Loss : 0.0015227156691253185
+Baseline Loss : 68802.203125
+Train_EnvstepsSoFar : 525115
+TimeSinceStart : 42.4839186668396
+Done logging...
+
+
+
+********** Iteration 94 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  30%|███       | 1509/5000 [00:00<00:00, 5602.71it/s]sampling trajectory:  75%|███████▍  | 3729/5000 [00:00<00:00, 7902.00it/s]sampling trajectory: 6919it [00:00, 10914.85it/s]                         sampling trajectory: 6919it [00:00, 9772.14it/s] 
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 1266it [00:00, 4938.35it/s]             sampling trajectory: 1266it [00:00, 4928.89it/s]
+Eval_AverageReturn : 566.5
+Eval_StdReturn : 433.5
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 133.0
+Eval_AverageEpLen : 566.5
+Train_AverageReturn : 797.5
+Train_StdReturn : 294.60015869140625
+Train_MaxReturn : 1000.0
+Train_MinReturn : 289.0
+Train_AverageEpLen : 797.5
+Actor Loss : -0.023485973477363586
+Baseline Loss : 157729.03125
+Train_EnvstepsSoFar : 532034
+TimeSinceStart : 43.47368383407593
+Done logging...
+
+
+
+********** Iteration 95 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  36%|███▌      | 1810/5000 [00:00<00:00, 5854.73it/s]sampling trajectory:  84%|████████▍ | 4215/5000 [00:00<00:00, 8298.96it/s]sampling trajectory: 7181it [00:00, 12676.34it/s]                         sampling trajectory: 7181it [00:00, 10834.90it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  77%|███████▋  | 770/1000 [00:00<00:00, 4356.56it/s]sampling trajectory: 1598it [00:00, 8344.17it/s]                         
+Eval_AverageReturn : 414.0
+Eval_StdReturn : 356.0
+Eval_MaxReturn : 770.0
+Eval_MinReturn : 58.0
+Eval_AverageEpLen : 414.0
+Train_AverageReturn : 741.5
+Train_StdReturn : 264.3184509277344
+Train_MaxReturn : 1000.0
+Train_MinReturn : 405.0
+Train_AverageEpLen : 741.5
+Actor Loss : 0.0031887434888631105
+Baseline Loss : 132886.265625
+Train_EnvstepsSoFar : 539215
+TimeSinceStart : 44.35055685043335
+Done logging...
+
+
+
+********** Iteration 96 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  10%|█         | 522/5000 [00:00<00:00, 4552.08it/s]sampling trajectory:  49%|████▉     | 2457/5000 [00:00<00:00, 10084.47it/s]sampling trajectory:  86%|████████▌ | 4309/5000 [00:00<00:00, 11066.65it/s]sampling trajectory: 7161it [00:00, 11926.67it/s]                          sampling trajectory: 7161it [00:00, 11196.69it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  79%|███████▉  | 790/1000 [00:00<00:00, 4308.76it/s]sampling trajectory: 2580it [00:00, 6581.24it/s]                         sampling trajectory: 2580it [00:00, 6268.91it/s]
+Eval_AverageReturn : 895.0
+Eval_StdReturn : 105.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 790.0
+Eval_AverageEpLen : 895.0
+Train_AverageReturn : 570.4000244140625
+Train_StdReturn : 257.7600402832031
+Train_MaxReturn : 1000.0
+Train_MinReturn : 233.0
+Train_AverageEpLen : 570.4
+Actor Loss : -0.01254869531840086
+Baseline Loss : 85687.953125
+Train_EnvstepsSoFar : 546376
+TimeSinceStart : 45.4232759475708
+Done logging...
+
+
+
+********** Iteration 97 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  19%|█▉        | 953/5000 [00:00<00:00, 4466.06it/s]sampling trajectory:  75%|███████▍  | 3745/5000 [00:00<00:00, 10900.30it/s]sampling trajectory: 5737it [00:00, 12525.26it/s]                          
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  64%|██████▎   | 635/1000 [00:00<00:00, 4095.62it/s]sampling trajectory: 2270it [00:00, 6113.97it/s]                         sampling trajectory: 2270it [00:00, 5863.03it/s]
+Eval_AverageReturn : 817.5
+Eval_StdReturn : 182.5
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 635.0
+Eval_AverageEpLen : 817.5
+Train_AverageReturn : 498.0
+Train_StdReturn : 292.2746887207031
+Train_MaxReturn : 953.0
+Train_MinReturn : 175.0
+Train_AverageEpLen : 498.0
+Actor Loss : -0.020196441560983658
+Baseline Loss : 85570.171875
+Train_EnvstepsSoFar : 552113
+TimeSinceStart : 46.28893685340881
+Done logging...
+
+
+
+********** Iteration 98 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  20%|██        | 1000/5000 [00:00<00:00, 4332.58it/s]sampling trajectory:  60%|██████    | 3000/5000 [00:00<00:00, 6921.86it/s]sampling trajectory: 6000it [00:00, 9763.32it/s]                          sampling trajectory: 6000it [00:00, 8724.63it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory:  89%|████████▉ | 891/1000 [00:00<00:00, 3988.97it/s]sampling trajectory: 2588it [00:00, 6742.75it/s]                         sampling trajectory: 2588it [00:00, 6285.01it/s]
+Eval_AverageReturn : 848.5
+Eval_StdReturn : 42.5
+Eval_MaxReturn : 891.0
+Eval_MinReturn : 806.0
+Eval_AverageEpLen : 848.5
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -0.009085536003112793
+Baseline Loss : 174996.28125
+Train_EnvstepsSoFar : 558113
+TimeSinceStart : 47.41417193412781
+Done logging...
+
+
+
+********** Iteration 99 ************
+sampling trajectory:   0%|          | 0/5000 [00:00<?, ?it/s]sampling trajectory:  14%|█▎        | 680/5000 [00:00<00:01, 4300.56it/s]sampling trajectory:  47%|████▋     | 2360/5000 [00:00<00:00, 6323.87it/s]sampling trajectory: 5040it [00:00, 8875.82it/s]                          sampling trajectory: 5040it [00:00, 8099.72it/s]
+
+Collecting data for eval...
+sampling trajectory:   0%|          | 0/1000 [00:00<?, ?it/s]sampling trajectory: 100%|██████████| 1000/1000 [00:00<00:00, 4154.33it/s]sampling trajectory: 100%|██████████| 1000/1000 [00:00<00:00, 4144.00it/s]
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 893.3333129882812
+Train_StdReturn : 150.8494415283203
+Train_MaxReturn : 1000.0
+Train_MinReturn : 680.0
+Train_AverageEpLen : 893.3333333333334
+Actor Loss : 0.006294880993664265
+Baseline Loss : 142884.734375
+Train_EnvstepsSoFar : 563153
+TimeSinceStart : 48.301634788513184
+Done logging...
+
+
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mInvertedPendulum-v4_pendulum_lambda1_lr0.003_na_b5000_sd1_20260606_232626[0m at: [34m[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../var/folders/mf/3z49lxfd0jgbxbqysr5_g6y40000gn/T/tmpdjlx59l_/wandb/run-20260606_232627-sbqpfn5n/logs[0m
