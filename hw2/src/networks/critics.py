@@ -7,6 +7,8 @@ import numpy as np
 import torch
 from torch import distributions
 
+from jaxtyping import Float
+
 from infrastructure import pytorch_util as ptu
 
 
@@ -34,19 +36,25 @@ class ValueCritic(nn.Module):
             learning_rate,
         )
 
-    def forward(self, obs: torch.Tensor) -> torch.Tensor:
-        # TODO: implement the forward pass of the critic network
-        pass
+    def forward(
+        self, obs: Float[torch.Tensor, "batch obs_dim"]
+    ) -> Float[torch.Tensor, "batch"]:
+        # TODO(done): implement the forward pass of the critic network
+        # note above self.network's output_size=1 results in mlp outputting shape (batch, 1)
+        return self.network(obs).squeeze(-1)
 
     def update(self, obs: np.ndarray, q_values: np.ndarray) -> dict:
         obs = ptu.from_numpy(obs)
         q_values = ptu.from_numpy(q_values)
 
-        # TODO: compute the loss using the observations and q_values
-        loss = None
+        # TODO(done): compute the loss using the observations and q_values
+        preds = self.forward(obs)
+        loss = F.mse_loss(preds, q_values)
 
-        # TODO: perform an optimizer step
-        pass
+        # TODO(done): perform an optimizer step
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
 
         return {
             "Baseline Loss": loss.item(),

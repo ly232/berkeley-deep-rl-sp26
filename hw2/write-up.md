@@ -19,4 +19,18 @@ Yes. It reduced variance of min/max/avg returns.
 
 > Did the batch size make an impact?
 
-From the experiment, emperically, larger batch size has lower variance for the max return, while it has higher variance for the min and average return.
+Yes. Average return converged quicker with larger batch size, though towards the end around step 95+, large batch rtg + advantage normalization regressed in average return, while smaller batch size didn't regress.
+
+## Generalized Advantage Estimation
+
+See run results at https://wandb.ai/yang7-cooper-google/cs285_hw2/table, under tag `hw2_part5`.
+
+> Consider the parameter λ. What does λ = 0 correspond to? What about λ = 1? Relate this to the task performance in LunarLander-v2 in one or two sentences.
+
+λ is positively correlated with variance (and thus negatively correlated with bias):
+* λ = 0 means low variance high bias, effectively running TD(0).
+* λ = 1 means high variance low bias, effectively running Monte Carlo.
+
+![GAE](gae.png)
+
+In this run, λ = 1 appers to perform the best, suggesting low-bias MC estimator is more helpful than low-variance TD estimators for LunarLandar. However, this is just one seed so may be inconclusive.

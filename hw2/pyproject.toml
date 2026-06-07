@@ -15,6 +15,7 @@ dependencies = [
     "gym[classic_control,mujoco,box2d]==0.25.2",
     "numpy<2.0.0",
     "pytest>=9.0.3",
+    "jaxtyping>=0.3.7",
 ]
 
 [build-system]

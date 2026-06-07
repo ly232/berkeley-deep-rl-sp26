@@ -84,9 +84,9 @@ class PGAgent(nn.Module):
 
         # step 4: if needed, use all datapoints (s_t, a_t, q_t) to update the PG critic/baseline
         if self.critic is not None:
-            # TODO: perform `self.baseline_gradient_steps` updates to the critic/baseline network
-            critic_info = None
-
+            # TODO(done): perform `self.baseline_gradient_steps` updates to the critic/baseline network
+            for _ in range(self.baseline_gradient_steps):
+                critic_info = self.critic.update(obs, q_values)
             info.update(critic_info)
 
         return info
@@ -146,38 +146,52 @@ class PGAgent(nn.Module):
 
         Operates on flat 1D NumPy arrays.
 
-        Recall that advantage is the baseline where b = average reward for a trajectory.
+        A(s_t, a_t) = Q(s_t, a_t) - V(s_t), where V(s_t) is also called the "baseline".
         """
         if self.critic is None:
             # TODO(done): if no baseline, then what are the advantages?
             advantages = q_values
         else:
-            # TODO: run the critic and use it as a baseline
-            values = None
-            assert values.shape == q_values.shape
+            # TODO(done): run the critic and use it as a baseline
+            values = ptu.to_numpy(self.critic(ptu.from_numpy(obs)))
+            assert (
+                values.shape == q_values.shape
+            ), f"values.shape: {values.shape}, q_values.shape: {q_values.shape}"
 
             if self.gae_lambda is None:
-                # TODO: if using a baseline, but not GAE, what are the advantages?
-                advantages = None
+                # TODO(done): if using a baseline, but not GAE, what are the advantages?
+                advantages = q_values - values
             else:
-                # TODO: implement GAE
+                # TODO(done): implement GAE
                 batch_size = obs.shape[0]
 
                 # HINT: append a dummy T+1 value for simpler recursive calculation
                 values = np.append(values, [0])
                 advantages = np.zeros(batch_size + 1)
+                not_terminals_mask = 1 - terminals
 
                 for i in reversed(range(batch_size)):
-                    # TODO: recursively compute advantage estimates starting from timestep T.
+                    # TODO(done): recursively compute advantage estimates starting from timestep T.
                     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
                     # trajectory, and 0 otherwise.
-                    pass
+                    td_error = (
+                        rewards[i]
+                        + self.gamma * values[i + 1] * not_terminals_mask[i]
+                        - values[i]
+                    )
+                    advantages[i] = (
+                        td_error
+                        + self.gamma
+                        * self.gae_lambda
+                        * advantages[i + 1]
+                        * not_terminals_mask[i]
+                    )
 
                 # remove dummy advantage
                 advantages = advantages[:-1]
 
-        # TODO: normalize the advantages to have a mean of zero and a standard deviation of one within the batch
+        # TODO(done): normalize the advantages to have a mean of zero and a standard deviation of one within the batch
         if self.normalize_advantages:
-            pass
+            advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
         return advantages
