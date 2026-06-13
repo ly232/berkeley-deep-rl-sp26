@@ -57,9 +57,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         stacked_frames = True
         frame_history_len = env.observation_space.shape[0]
         assert frame_history_len == 4, "only support 4 stacked frames"
-        replay_buffer = MemoryEfficientReplayBuffer(
-            frame_history_len=frame_history_len
-        )
+        replay_buffer = MemoryEfficientReplayBuffer(frame_history_len=frame_history_len)
     elif len(env.observation_space.shape) == 1:
         stacked_frames = False
         replay_buffer = ReplayBuffer()
@@ -86,8 +84,8 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     for step in tqdm.trange(config["total_steps"], dynamic_ncols=True):
         epsilon = exploration_schedule.value(step)
 
-        # TODO(Section 2.4): Compute action
-        action = None
+        # TODO(done)(Section 2.4): Compute action
+        action = agent.get_action(observation, epsilon)
         # ENDTODO
 
         next_observation, reward, done, info = env.step(action)
@@ -118,23 +116,33 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         if done:
             reset_env_training()
 
-            logger.log({
-                "Train_EpisodeReturn": info["episode"]["r"],
-                "Train_EpisodeLen": info["episode"]["l"],
-            }, step)
+            logger.log(
+                {
+                    "Train_EpisodeReturn": info["episode"]["r"],
+                    "Train_EpisodeLen": info["episode"]["l"],
+                },
+                step,
+            )
         else:
             observation = next_observation
 
         # Main DQN training loop
         if step >= config["learning_starts"]:
-            # TODO(Section 2.4): Sample config["batch_size"] samples from the replay buffer
-            batch = None
+            # TODO(done)(Section 2.4): Sample config["batch_size"] samples from the replay buffer
+            batch = replay_buffer.sample(config["batch_size"])
             # ENDTODO
 
             batch = ptu.from_numpy(batch)
 
-            # TODO(Section 2.4): Train the agent.
-            update_info = None
+            # TODO(done)(Section 2.4): Train the agent.
+            update_info = agent.update(
+                batch["observations"],
+                batch["actions"],
+                batch["rewards"],
+                batch["next_observations"],
+                batch["dones"],
+                step,
+            )
             # ENDTODO
 
             # Logging code
