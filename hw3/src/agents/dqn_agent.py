@@ -77,7 +77,9 @@ class DQNAgent(nn.Module):
 
             if self.use_double_q:
                 # TODO(Section 2.5): implement double-Q target action selection
-                next_action = None
+                next_action = torch.argmax(
+                    self.critic(next_obs), dim=1
+                )  # (batch_size,)
             else:
                 next_action = torch.argmax(next_qa_values, dim=1)  # (batch_size,)
 
