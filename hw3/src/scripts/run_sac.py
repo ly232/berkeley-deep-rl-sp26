@@ -31,9 +31,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     ep_len = config["ep_len"] or env.spec.max_episode_steps
 
     discrete = isinstance(env.action_space, gym.spaces.Discrete)
-    assert (
-        not discrete
-    ), "SAC only supports continuous action spaces."
+    assert not discrete, "SAC only supports continuous action spaces."
 
     ob_shape = env.observation_space.shape
     ac_dim = env.action_space.shape[0]
@@ -61,8 +59,8 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         if step < config["random_steps"]:
             action = env.action_space.sample()
         else:
-            # TODO(Section 3.1): Select an action
-            action = None
+            # TODO(done)(Section 3.1): Select an action
+            action = agent.get_action(observation)
             # ENDTODO
 
         # Step the environment and add the data to the replay buffer
@@ -76,19 +74,30 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         )
 
         if done:
-            logger.log({
-                "Train_EpisodeReturn": info["episode"]["r"],
-                "Train_EpisodeLen": info["episode"]["l"],
-            }, step)
+            logger.log(
+                {
+                    "Train_EpisodeReturn": info["episode"]["r"],
+                    "Train_EpisodeLen": info["episode"]["l"],
+                },
+                step,
+            )
             observation = env.reset()
         else:
             observation = next_observation
 
         # Train the agent
         if step >= config["training_starts"]:
-            # TODO(Section 3.1): Sample a batch of config["batch_size"] transitions from the replay buffer
-            batch = None
-            update_info = None
+            # TODO(done)(Section 3.1): Sample a batch of config["batch_size"] transitions from the replay buffer
+            batch = replay_buffer.sample(config["batch_size"])
+            batch = ptu.from_numpy(batch)
+            update_info = agent.update(
+                batch["observations"],
+                batch["actions"],
+                batch["rewards"],
+                batch["next_observations"],
+                batch["dones"],
+                step,
+            )
             # ENDTODO
 
             # Logging
