@@ -205,12 +205,17 @@ class SoftActorCritic(nn.Module):
             # TODO(done)(Section 3.2): Sample from the actor and compute next Q-values
             next_action_distribution = self.actor(next_obs)
             next_action = next_action_distribution.sample()
-            next_qs = self.target_critic(next_obs, next_action)
+            next_qs = self.target_critic(
+                next_obs, next_action
+            )  # (num_critic_networks, batch_size)
             # ENDTODO
 
             if self.use_entropy_bonus and self.backup_entropy:
-                # TODO(Section 3.3): Add entropy bonus to the target values for SAC
-                next_action_entropy = None
+                # TODO(done)(Section 3.3): Add entropy bonus to the target values for SAC
+                next_action_entropy = self.entropy(
+                    next_action_distribution
+                )  # (batch_size,)
+                next_qs = next_qs + self.get_temperature() * next_action_entropy
                 # Hint: next_qs = ...
                 # ENDTODO
 
@@ -252,11 +257,31 @@ class SoftActorCritic(nn.Module):
     def entropy(self, action_distribution: torch.distributions.Distribution):
         """
         Compute the (approximate) entropy of the action distribution for each batch element.
+
+        Note this method returns shape (batch,), notably, it does NOT compute
+        the expecation across batches and therefore does NOT return a scaler.
+        This method effectively computes single-sample monte-carlo estimates
+        for each sample in batch.
         """
 
-        # TODO(Section 3.3): Compute the entropy of the action distribution.
+        # TODO(done)(Section 3.3): Compute the entropy of the action distribution.
         # Note: Think about whether to use .rsample() or .sample() here...
-        return None
+        #
+        # We cannot simply invoke `action_distribution.entropy()`, as pytorch
+        # default implementation will throw exception for unsupported
+        # distributions (in this case, tanh transformed Gaussian). Instead,
+        # we estimate the entropy by taking monte-carlo estimates of the
+        # negative log likehood.
+        #
+        # Use `rsample()` instead of `sample()`, as `entropy()` is part of the
+        # computation graph for both actor and critic parameter backprops.
+        #
+        # Estimate H(pi(.|s)) = E[-log pi(a|s)] with one Monte Carlo sample
+        # per batch element. We return shape (batch_size,), leaving any batch
+        # averaging to the caller.
+        action_samples_batch = action_distribution.rsample()
+        neg_log_likelihood = -action_distribution.log_prob(action_samples_batch)
+        return neg_log_likelihood
         # ENDTODO
 
     def actor_loss_reparametrize(self, obs: torch.Tensor):
@@ -297,8 +322,8 @@ class SoftActorCritic(nn.Module):
         """
         loss, entropy, log_prob = self.actor_loss_reparametrize(obs)
 
-        # TODO(Section 3.3): Add the entropy bonus to the actor loss: loss -= [your entropy bonus here]
-        pass
+        # TODO(done)(Section 3.3): Add the entropy bonus to the actor loss: loss -= [your entropy bonus here]
+        loss = loss - self.get_temperature() * entropy
         # ENDTODO
 
         self.actor_optimizer.zero_grad()
@@ -381,8 +406,14 @@ class SoftActorCritic(nn.Module):
             critic_infos.append(info)
         # ENDTODO
 
-        # TODO(Section 3.3): Enable the actor update (once you have implemented entropy)
-        actor_info = {}
+        # TODO(done)(Section 3.3): Enable the actor update (once you have implemented entropy)
+        #
+        # Updates actor by sampling new actions from the *current* policy, by
+        # taking sampled states from the replay buffer.
+        # * s ~ replay buffer
+        # * a ~ pi(.|s)
+        # * gradient ascent to maximize Q and entropy
+        actor_info = self.update_actor(observations)
         # ENDTODO
 
         # Update alpha (temperature) using dual gradient descent (Section 3.5)
