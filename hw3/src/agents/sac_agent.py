@@ -290,18 +290,14 @@ class SoftActorCritic(nn.Module):
         # Sample from the actor
         action_distribution: torch.distributions.Distribution = self.actor(obs)
 
-        # TODO(Section 3.4): Sample actions using reparameterization (replace the placeholder below)
+        # TODO(done)(Section 3.4): Sample actions using reparameterization (replace the placeholder below)
         # Note: Think about whether to use .rsample() or .sample() here, and why...
-        action = torch.zeros(
-            batch_size, self.action_dim, device=obs.device
-        )  # replace this with the correct action
+        action = action_distribution.rsample()
         assert action.shape == (batch_size, self.action_dim), action.shape
         # ENDTODO
 
-        # TODO(Section 3.4): Compute Q-values for the sampled state-action pair (replace the placeholder below)
-        q_values = torch.zeros(
-            self.num_critic_networks, batch_size, device=obs.device
-        )  # replace this with the correct q_values
+        # TODO(done)(Section 3.4): Compute Q-values for the sampled state-action pair (replace the placeholder below)
+        q_values = self.critic(obs, action)
         assert q_values.shape == (self.num_critic_networks, batch_size), q_values.shape
         # ENDTODO
 
@@ -309,9 +305,7 @@ class SoftActorCritic(nn.Module):
         log_prob = action_distribution.log_prob(action)
 
         # TODO(Section 3.4): Compute the actor loss (replace the placeholder below)
-        loss = torch.tensor(
-            0.0, device=obs.device
-        )  # replace this with the correct loss
+        loss = -q_values.mean()
         # ENDTODO
 
         return loss, torch.mean(self.entropy(action_distribution)), log_prob
