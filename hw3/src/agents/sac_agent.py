@@ -87,25 +87,49 @@ class SoftActorCritic(nn.Module):
         # Automatic temperature tuning (Section 3.5)
         self.auto_tune_temperature = auto_tune_temperature
         if self.auto_tune_temperature:
-            # TODO(Section 3.5): Initialize log_alpha, alpha_optimizer, and target_entropy
+            # TODO(done)(Section 3.5): Initialize log_alpha, alpha_optimizer, and target_entropy
             # Hint: Initialize log_alpha to log(temperature) so alpha starts at the given temperature
-            self.log_alpha = None
-            self.alpha_optimizer = None
-            self.target_entropy = None
+            self.log_alpha = torch.nn.Parameter(
+                torch.tensor(
+                    # Prefer float32 because (a) optimizer params are keen to
+                    # precisions, and (b) while GPU tensor cores deliver more
+                    # throughput with float16, that's irrelevant here as tensor
+                    # cores are for matmul, whereas here the param is a scalar.
+                    np.log(self.temperature),
+                    device=ptu.device,
+                    dtype=torch.float32,
+                )
+            )
+            # torch.log(self.temperature)
+            self.alpha_optimizer = torch.optim.Adam(
+                [self.log_alpha], lr=alpha_learning_rate
+            )
+            # Note: action_dim is NOT the cardinality of action space. In fact,
+            # SAC can solve contineous action space, where action space is
+            # infinite. action_dim is the dimensionality of the contineous
+            # action vector, e.g. [torque_1, torque_2] would be action_dim == 2.
+            #
+            # Target entropy is a heuristic value. Recall entropy formula is
+            # -sum{p(x)log(p(x))}. Here the heuristic is the more complex the
+            # action vector, the more uncertainty.
+            self.target_entropy = -action_dim
             # ENDTODO
 
         self.critic_loss = nn.MSELoss()
 
         self.update_target_critic()
 
-    def get_temperature(self) -> float:
+    def get_temperature(self) -> float | torch.Tensor:
         """
         Get the current temperature value (either fixed or learned).
+
+        Returns Tensor if auto tune temperature is enabled, as it needs grad
+        backprop to update the Lagrange multiplier temperature parameter.
         """
         if self.auto_tune_temperature:
-            # TODO(Section 3.5): Return the current learned temperature
+            # TODO(done)(Section 3.5): Return the current learned temperature
             # skip here until we implement the temperature tuning
-            return None
+            return torch.exp(self.log_alpha)
             # ENDTODO
         else:
             return self.temperature
@@ -304,7 +328,7 @@ class SoftActorCritic(nn.Module):
         # Compute log probabilities for alpha update (Section 3.5)
         log_prob = action_distribution.log_prob(action)
 
-        # TODO(Section 3.4): Compute the actor loss (replace the placeholder below)
+        # TODO(done)(Section 3.4): Compute the actor loss (replace the placeholder below)
         loss = -q_values.mean()
         # ENDTODO
 
@@ -348,9 +372,13 @@ class SoftActorCritic(nn.Module):
         if not self.auto_tune_temperature:
             return {}
 
-        # TODO(Section 3.5): Implement dual gradient descent for temperature tuning
-        alpha = None
-        alpha_loss = None
+        # TODO(done)(Section 3.5): Implement dual gradient descent for temperature tuning
+        alpha = self.get_temperature()
+        # Note alpha_loss is a surrogate loss.
+        # alpha_loss = -(log_alpha * (log_prob + target_entropy).detach()).mean()
+        alpha_loss = -(
+            self.log_alpha * (log_prob + self.target_entropy).detach()
+        ).mean()
 
         self.alpha_optimizer.zero_grad()
         alpha_loss.backward()
@@ -452,6 +480,9 @@ class SoftActorCritic(nn.Module):
         }
 
         # Always log temperature (whether fixed or learned)
-        result["temperature"] = self.get_temperature()
+        temperature = self.get_temperature()
+        if isinstance(temperature, torch.Tensor):
+            temperature = temperature.item()
+        result["temperature"] = temperature
 
         return result
