@@ -3,7 +3,11 @@ from collections import namedtuple
 import pytest
 import torch
 
-from hw4.models.logprobs import compute_per_token_logprobs, build_completion_mask
+from hw4.models.logprobs import (
+    approx_kl_fromogprobs,
+    compute_per_token_logprobs,
+    build_completion_mask,
+)
 
 FixedLogitsModelOutput = namedtuple("FixedLogitsModelOutput", ["logits"])
 
@@ -127,3 +131,51 @@ def test_build_completion_mask():
         dtype=torch.float32,
     )
     torch.testing.assert_close(expected_mask, actual_mask)
+
+
+def test_approx_kl_fromogprobs():
+    new_logprobs = torch.log_softmax(
+        torch.tensor(
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+            ],
+            dtype=torch.float32,
+        ),
+        dim=-1,
+    )
+    # Adding 0.1 to every entry effectively multiplies every exp(logit) by the
+    # same factor exp(0.1), then numerator and denumerator cancels out:
+    """
+    softmax(z_i + c)
+    = exp(z_i + c) / sum_j exp(z_j + c)
+    = exp(c) exp(z_i) / sum_j exp(c) exp(z_j)
+    = exp(c) exp(z_i) / (exp(c) sum_j exp(z_j))
+    = exp(z_i) / sum_j exp(z_j)
+    = softmax(z_i)
+    """
+    ref_logprobs = torch.log_softmax(
+        torch.tensor(
+            [
+                [1.1, 2.1, 3.1],
+                [4.1, 5.1, 6.1],
+            ],
+            dtype=torch.float32,
+        ),
+        dim=-1,
+    )
+    mask = torch.tensor(
+        [
+            [0, 1, 0],
+            [0, 1, 0],
+        ],
+        dtype=torch.float32,
+    )
+
+    expected = torch.tensor(0.0)
+
+    actual = approx_kl_fromogprobs(
+        new_logprobs=new_logprobs, ref_logprobs=ref_logprobs, mask=mask
+    )
+
+    torch.testing.assert_close(expected=expected, actual=actual)

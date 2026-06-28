@@ -139,7 +139,7 @@ def approx_kl_fromogprobs(
     log_ratio_clip: float = 20.0,
 ) -> torch.Tensor:
     """Positive KL proxy from sampled actions."""
-    # TODO(student): implement a masked mean KL proxy. All three inputs have shape
+    # TODO(done): implement a masked mean KL proxy. All three inputs have shape
     # [B, L-1], and mask selects only completion-token positions.
     #
     # This is an approximate / sampled KL, not an exact full-vocabulary KL at each
@@ -160,4 +160,8 @@ def approx_kl_fromogprobs(
     #                             = KL(p_new || p_ref).
     #
     # The clamp to [-20, 20] is for numerical stability / variance control.
-    raise NotImplementedError("student TODO: approx_kl_from_logprobs")
+    delta = torch.clamp(
+        ref_logprobs - new_logprobs, min=-log_ratio_clip, max=log_ratio_clip
+    )
+    per_token = torch.exp(delta) - delta - 1
+    return masked_mean(x=per_token, mask=mask, eps=eps)
