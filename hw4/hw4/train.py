@@ -291,12 +291,16 @@ def compute_group_advantages(
 def maybe_normalize_advantages(
     advantages: torch.Tensor, enabled: bool, eps: float = 1e-6
 ) -> torch.Tensor:
-    # TODO(student): if enabled, z-score normalize the full advantage vector:
+    # TODO(done): if enabled, z-score normalize the full advantage vector:
     #   A' = (A - mean(A)) / (std(A) + eps)
     # Again use the population standard deviation (unbiased=False).
     # Otherwise return A unchanged.
     # Keep the output shape identical to the input shape.
-    raise NotImplementedError("student TODO: maybe_normalize_advantages")
+    if not enabled:
+        return advantages
+    mean = torch.mean(advantages, dim=-1, keepdim=True)
+    std = torch.std(advantages, dim=-1, unbiased=False, keepdim=True)
+    return (advantages - mean) / (std + eps)
 
 
 def maybe_update_warmup_lr(

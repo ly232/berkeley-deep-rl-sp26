@@ -1,6 +1,6 @@
 import torch
 
-from hw4.train import compute_group_advantages
+from hw4.train import compute_group_advantages, maybe_normalize_advantages
 
 
 def test_compute_group_advantages():
@@ -15,4 +15,20 @@ def test_compute_group_advantages():
     actual = compute_group_advantages(rewards, group_size)
     expected = torch.tensor([-1.2247449, 0.0, 1.2247449, 0.0, 0.0, 0.0])
 
+    torch.testing.assert_close(actual=actual, expected=expected)
+
+
+def test_maybe_normalize_advantages():
+    rewards = torch.tensor([1.0, 2.0, 3.0, 10.0, 10.0, 10.0])
+    group_size = 3
+    advantages = compute_group_advantages(rewards, group_size)
+
+    # Test enabled normalization.
+    actual = maybe_normalize_advantages(advantages, True)
+    expected = torch.tensor([-1.732, 0, 1.732, 0, 0, 0])
+    torch.testing.assert_close(actual=actual, expected=expected, atol=1e-3, rtol=1e-3)
+
+    # Test disabled normalization.
+    actual = maybe_normalize_advantages(advantages, False)
+    expected = torch.tensor([-1.2247449, 0.0, 1.2247449, 0.0, 0.0, 0.0])
     torch.testing.assert_close(actual=actual, expected=expected)
