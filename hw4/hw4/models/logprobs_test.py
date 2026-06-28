@@ -4,7 +4,7 @@ import pytest
 import torch
 
 from hw4.models.logprobs import (
-    approx_kl_fromogprobs,
+    approx_kl_from_logprobs,
     compute_per_token_logprobs,
     build_completion_mask,
 )
@@ -133,7 +133,7 @@ def test_build_completion_mask():
     torch.testing.assert_close(expected_mask, actual_mask)
 
 
-def test_approx_kl_fromogprobs():
+def test_approx_kl_from_logprobs():
     new_logprobs = torch.log_softmax(
         torch.tensor(
             [
@@ -174,7 +174,7 @@ def test_approx_kl_fromogprobs():
 
     expected = torch.tensor(0.0)
 
-    actual = approx_kl_fromogprobs(
+    actual = approx_kl_from_logprobs(
         new_logprobs=new_logprobs, ref_logprobs=ref_logprobs, mask=mask
     )
 

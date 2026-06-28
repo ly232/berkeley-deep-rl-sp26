@@ -242,9 +242,11 @@ def build_algo(cfg: TrainConfig):
 
 
 def compute_group_advantages(
-    rewards: torch.Tensor, group_size: int, eps: float = 1e-6
+    rewards: torch.Tensor,  # (batch_size * group_size,)
+    group_size: int,
+    eps: float = 1e-6,
 ) -> torch.Tensor:
-    # TODO(student): implement group-relative advantage normalization.
+    # TODO(done): implement group-relative advantage normalization.
     # rewards is a flat vector of length N = batch_size * group_size in prompt-major
     # order, so the group_size sampled completions for the same prompt are contiguous.
     #
@@ -264,7 +266,26 @@ def compute_group_advantages(
     #   of your choice for that group
     #
     # Return a flat tensor with the same shape/order as rewards.
-    raise NotImplementedError("student TODO: compute_group_advantages")
+    N = rewards.shape[0]
+
+    # Edge cases:
+    if group_size <= 1:
+        return torch.zeros_like(rewards)
+    if N % group_size != 0:
+        raise ValueError(
+            f"Unexpected group size {group_size} vs. reward size {N}; maybe something wrong with rollout?"
+        )
+
+    num_groups = N // group_size
+    rewards_per_group = rewards.reshape(
+        num_groups, group_size
+    )  # (num_groups, group_size)
+    mean = torch.mean(rewards_per_group, dim=1, keepdim=True)  # (num_groups, 1)
+    std = torch.std(
+        rewards_per_group, dim=1, unbiased=False, keepdim=True
+    )  # (num_groups, 1)
+    adv = (rewards_per_group - mean) / (std + eps)
+    return adv.reshape(N)
 
 
 def maybe_normalize_advantages(

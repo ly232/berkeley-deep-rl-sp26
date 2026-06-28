@@ -131,7 +131,7 @@ def masked_mean_per_row(
     return (x * mask).sum(dim=1) / (mask.sum(dim=1) + eps)
 
 
-def approx_kl_fromogprobs(
+def approx_kl_from_logprobs(
     new_logprobs: torch.Tensor,
     ref_logprobs: torch.Tensor,
     mask: torch.Tensor,
