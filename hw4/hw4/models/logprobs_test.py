@@ -1,5 +1,6 @@
 from collections import namedtuple
 
+import pytest
 import torch
 
 from hw4.models.logprobs import compute_per_token_logprobs
@@ -18,7 +19,8 @@ class FixedLogitsModel(torch.nn.Module):
         return FixedLogitsModelOutput(logits=self.logits)
 
 
-def test_shape_compute_per_token_logprobs():
+@pytest.mark.parametrize("naive_impl", [True, False])
+def test_shape_compute_per_token_logprobs(naive_impl):
     B, L, V = 32, 64, 512
     logits = torch.randn(B, L, V)
     model = FixedLogitsModel(logits)
@@ -27,13 +29,17 @@ def test_shape_compute_per_token_logprobs():
     attention_mask = torch.ones_like(input_ids)
 
     out = compute_per_token_logprobs(
-        model=model, input_ids=input_ids, attention_mask=attention_mask
+        model=model,
+        input_ids=input_ids,
+        attention_mask=attention_mask,
+        naive_impl=naive_impl,
     )
 
     assert out.shape == (B, L - 1)
 
 
-def test_content_compute_per_token_logprobs():
+@pytest.mark.parametrize("naive_impl", [True, False])
+def test_content_compute_per_token_logprobs(naive_impl):
     B, L, V = 1, 3, 4
     input_ids = torch.tensor([[0, 2, 1]])
     logits = torch.tensor(
@@ -85,7 +91,10 @@ def test_content_compute_per_token_logprobs():
 
     attention_mask = torch.ones_like(input_ids)
     out = compute_per_token_logprobs(
-        model=model, input_ids=input_ids, attention_mask=attention_mask
+        model=model,
+        input_ids=input_ids,
+        attention_mask=attention_mask,
+        naive_impl=naive_impl,
     )
 
     torch.testing.assert_close(out, expected)
