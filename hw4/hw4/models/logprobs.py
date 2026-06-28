@@ -12,9 +12,10 @@ def compute_per_token_logprobs(
     attention_mask: torch.Tensor,
     *,
     enable_grad: bool = True,
+    naive_impl=True,
 ) -> torch.Tensor:
     """Returns log p(x_t | x_<t) for t in [1, L-1]. input_ids/attention_mask are [B, L]; output is [B, L-1]."""
-    # TODO(student): implement next-token log-probs aligned to target tokens.
+    # TODO(done): implement next-token log-probs aligned to target tokens.
     # Notation:
     # - B = batch size (number of sequences)
     # - L = tokenized sequence length including prompt, completion, and any padding
@@ -43,7 +44,25 @@ def compute_per_token_logprobs(
     #
     # Respect enable_grad: when enable_grad=False this function should not build an
     # autograd graph.
-    raise NotImplementedError("student TODO: compute_per_token_logprobs")
+
+    # Naive implementation:
+    def _execute():
+        if naive_impl:
+            out = model(
+                input_ids=input_ids, attention_mask=attention_mask, use_cache=False
+            )
+            logits = out.logits[:, :-1, :]  # (B, L-1, V)
+            targets = input_ids[:, 1:].unsqueeze(-1)  # (B, L-1, 1)
+            log_probs = torch.log_softmax(logits, dim=-1)  # (B, L-1, V)
+            return torch.gather(log_probs, dim=2, index=targets).squeeze(-1)  # (B, L-1)
+        else:
+            raise NotImplementedError("TODO")
+
+    if enable_grad:
+        return _execute()
+    else:
+        with torch.no_grad():
+            return _execute()
 
 
 def build_completion_mask(
@@ -77,7 +96,9 @@ def masked_mean(x: torch.Tensor, mask: torch.Tensor, eps: float = 1e-8) -> torch
     return (x * mask).sum() / (mask.sum() + eps)
 
 
-def masked_mean_per_row(x: torch.Tensor, mask: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
+def masked_mean_per_row(
+    x: torch.Tensor, mask: torch.Tensor, eps: float = 1e-8
+) -> torch.Tensor:
     return (x * mask).sum(dim=1) / (mask.sum(dim=1) + eps)
 
 
