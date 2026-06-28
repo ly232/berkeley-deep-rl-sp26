@@ -71,13 +71,31 @@ def compute_per_token_logprobs(
 
 
 def build_completion_mask(
-    input_ids: torch.Tensor,
-    attention_mask: torch.Tensor,
+    input_ids: torch.Tensor,  # (B, L)
+    attention_mask: torch.Tensor,  # (B, L)
     prompt_input_len: int,
-    pad_token_id: int,
+    pad_token_id: int | None = None,
 ) -> torch.Tensor:
-    """Mask over per-token positions [B, L-1], selecting completion tokens only."""
-    # TODO(student): return a float mask of shape [B, L-1] on the same device as
+    """Mask over per-token positions [B, L-1], selecting completion tokens only.
+
+    input_ids:       [prompt tokens | completion tokens | padding]
+    logprobs output: scores tokens 1 through L-1
+
+    Here, input_ids is a concatenation of user prompt + model outputs. Concat is
+    because LLM by design is auto-regressive.
+
+    In RL, we only train on generated completion tokens. Not prompt nor padding.
+    So build_completion_mask returns a mask tensor of shape (B, L-1)
+
+    input_ids positions:    0   1   2   3   4   5
+    tokens:               [ P | P | P | C | C | PAD ]
+                            prompt   completion
+
+    logprob positions:       0   1   2   3   4
+    scores token index:      1   2   3   4   5
+    mask should be:        [ 0 | 0 | 1 | 1 | 0 ]
+    """
+    # TODO(done): return a float mask of shape [B, L-1] on the same device as
     # input_ids. Here input_ids and attention_mask both have shape [B, L].
     #
     # The per-token logprob tensor is indexed by t in [0, L-2], where entry t scores
@@ -90,7 +108,13 @@ def build_completion_mask(
     # prompt_input_len is the (padded) prompt length before completion tokens were
     # appended. You can use attention_mask to exclude padding; pad_token_id is passed
     # for convenience but a direct attention-mask-based solution is fine.
-    raise NotImplementedError("student TODO: build_completion_mask")
+    B, L = input_ids.shape
+    positions = torch.arange(L - 1, device=input_ids.device)
+    is_position_completion = positions >= prompt_input_len - 1
+    is_position_completion = is_position_completion.unsqueeze(0)  # (1, L-1)
+    is_not_padding = attention_mask[:, 1:].bool()  # (B, L-1)
+    final_mask = is_position_completion & is_not_padding
+    return final_mask.float()
 
 
 def masked_sum(x: torch.Tensor, mask: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
@@ -107,7 +131,7 @@ def masked_mean_per_row(
     return (x * mask).sum(dim=1) / (mask.sum(dim=1) + eps)
 
 
-def approx_kl_from_logprobs(
+def approx_kl_fromogprobs(
     new_logprobs: torch.Tensor,
     ref_logprobs: torch.Tensor,
     mask: torch.Tensor,

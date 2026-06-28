@@ -3,7 +3,7 @@ from collections import namedtuple
 import pytest
 import torch
 
-from hw4.models.logprobs import compute_per_token_logprobs
+from hw4.models.logprobs import compute_per_token_logprobs, build_completion_mask
 
 FixedLogitsModelOutput = namedtuple("FixedLogitsModelOutput", ["logits"])
 
@@ -98,3 +98,32 @@ def test_content_compute_per_token_logprobs(naive_impl):
     )
 
     torch.testing.assert_close(out, expected)
+
+
+def test_build_completion_mask():
+    input_ids = torch.tensor(
+        [
+            [100, 200, 300],
+            [400, 500, 600],
+        ]
+    )
+    attention_mask = torch.tensor(
+        [
+            [1, 1, 0],
+            [1, 1, 0],
+        ]
+    )
+    prompt_input_len = 1
+    actual_mask = build_completion_mask(
+        input_ids=input_ids,
+        attention_mask=attention_mask,
+        prompt_input_len=prompt_input_len,
+    )
+    expected_mask = torch.tensor(
+        [
+            [1, 0],
+            [1, 0],
+        ],
+        dtype=torch.float32,
+    )
+    torch.testing.assert_close(expected_mask, actual_mask)
