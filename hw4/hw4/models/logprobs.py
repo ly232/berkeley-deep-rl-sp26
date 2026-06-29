@@ -113,8 +113,8 @@ def build_completion_mask(
     is_position_completion = positions >= prompt_input_len - 1
     is_position_completion = is_position_completion.unsqueeze(0)  # (1, L-1)
     is_not_padding = attention_mask[:, 1:].bool()  # (B, L-1)
-    final_mask = is_position_completion & is_not_padding
-    return final_mask.float()
+    final_mask = is_position_completion & is_not_padding  # (B, L-1)
+    return final_mask.float()  # (B, L-1)
 
 
 def masked_sum(x: torch.Tensor, mask: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
